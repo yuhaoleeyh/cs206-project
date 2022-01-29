@@ -26,7 +26,9 @@
       {
         "custom": "ignore"
       }
+      
     ],
+    "react/no-unescaped-entities": 0,
     "react/jsx-curly-spacing": [2, "never"],
     "no-unused-vars": "warn",
     "react/prop-types": "warn"
