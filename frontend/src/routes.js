@@ -42,6 +42,7 @@ import Billing from "layouts/billing";
 import VirtualReality from "layouts/virtual-reality";
 import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
+import ProfileCreation from "layouts/profileCreation";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
@@ -109,6 +110,15 @@ const routes = [
     route: "/profile",
     icon: <CustomerSupport size="12px" />,
     component: Profile,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Profile Creation",
+    key: "profileCreation",
+    route: "/profileCreation",
+    icon: <CustomerSupport size="12px" />,
+    component: ProfileCreation,
     noCollapse: true,
   },
   {
