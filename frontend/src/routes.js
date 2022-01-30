@@ -43,6 +43,7 @@ import VirtualReality from "layouts/virtual-reality";
 import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
 import ProfileCreation from "layouts/profileCreation";
+import Recommender from "layouts/recommender";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
@@ -100,6 +101,15 @@ const routes = [
     route: "/rtl",
     icon: <Settings size="12px" />,
     component: RTL,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Recommender",
+    key: "recommender",
+    route: "/recommender",
+    icon: <Settings size="12px" />,
+    component: Recommender,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },
