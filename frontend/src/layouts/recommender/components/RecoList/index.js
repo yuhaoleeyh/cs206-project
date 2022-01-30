@@ -12,6 +12,16 @@ import RecoBox from "layouts/recommender/components/RecoBox";
 
 function RecoList({jobs}) {
 
+  if (jobs.length === 0) {
+    return (
+      <SuiBox py={3}>
+        <SuiTypography variant="h5" fontWeight="medium" gutterBottom>
+          Sorry, no results found. Please try again!
+        </SuiTypography>
+      </SuiBox>
+    );
+  }
+
   return (
     <SuiBox py={3}>
       <Grid container spacing={3}>
@@ -21,7 +31,7 @@ function RecoList({jobs}) {
                 key={job.id}
                 company={job.company}
                 title={job.title}
-                desc={job.desc}
+                desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
               />
             </Grid>
           ))}
