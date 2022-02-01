@@ -12,8 +12,8 @@ from pathlib import Path
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 def get_num_correct(pred, y):
-    ints = torch.round(torch.sigmoid(pred))
-    return torch.sum(ints == y).item()
+    pred_ints = torch.round(torch.sigmoid(pred))
+    return torch.sum(pred_ints == y).item()
 
 def train_loop(dataloader, model, loss_fn, optimizer):
     size = len(dataloader.dataset)
@@ -67,17 +67,3 @@ def run(args):
 
     print('Done!')
     torch.save(model.state_dict(), args.model_weights)
-
-
-
-    # pred = torch.tensor([[0.03, 0.4, 0.7], [0.03, 0.4, 0.7]])
-    # y = torch.tensor([[0, 1, 1], [0, 1, 1]])
-    # print(get_num_correct(pred, y))
-
-    # X_file = pd.read_csv(args.X_file, header=None, skiprows=1)
-    # x = torch.DoubleTensor(X_file.iloc[1]).float().to(device)
-    # print(type(x))
-    # print(x)
-    # y_pred = model(x)
-    # print(y_pred)
-    

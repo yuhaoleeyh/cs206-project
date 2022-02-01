@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from utils.pwd_utils import get_job_vector, print_difficulties, print_negated_jobs
+from utils.pwd_utils import get_job_vector
 
 def run(args):
     # Generate X - numpy array of shape (n_examples, n_questions), filled with 0s and 1s 
