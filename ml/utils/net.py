@@ -6,6 +6,8 @@ class NeuralNetwork(nn.Module):
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(8, 50),
             nn.ReLU(),
+            # nn.Linear(50, 50),
+            # nn.ReLU(),
             nn.Linear(50, 30)
         )
 
