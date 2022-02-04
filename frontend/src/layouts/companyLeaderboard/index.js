@@ -25,6 +25,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import Table from "examples/Tables/Table";
+import Header from "layouts/companyLeaderboard/Header";
 
 // Data
 import projectsTableData from "layouts/companyLeaderboard/data/projectsTableData";
@@ -34,7 +35,7 @@ function CompanyLeaderboard() {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
+      <Header />
       <SuiBox py={3}>
         <Card>
           <SuiBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
