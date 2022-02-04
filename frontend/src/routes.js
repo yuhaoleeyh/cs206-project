@@ -46,6 +46,7 @@ import ProfileCreation from "layouts/profileCreation";
 import Recommender from "layouts/recommender";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import CompanyLeaderboard from "layouts/companyLeaderboard";
 
 // Soft UI Dashboard React icons
 import Shop from "examples/Icons/Shop";
@@ -147,6 +148,15 @@ const routes = [
     route: "/authentication/sign-up",
     icon: <SpaceShip size="12px" />,
     component: SignUp,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Company Leaderboard",
+    key: "company-leaderboard",
+    route: "/company-leaderboard",
+    icon: <Office size="12px" />,
+    component: CompanyLeaderboard,
     noCollapse: true,
   },
 ];
