@@ -43,8 +43,11 @@ import VirtualReality from "layouts/virtual-reality";
 import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
 import ProfileCreation from "layouts/profileCreation";
+import Recommender from "layouts/recommender";
+import JobDesc from "layouts/jobdesc";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import CompanyLeaderboard from "layouts/companyLeaderboard";
 
 // Soft UI Dashboard React icons
 import Shop from "examples/Icons/Shop";
@@ -102,6 +105,24 @@ const routes = [
     component: RTL,
     noCollapse: true,
   },
+  {
+    type: "collapse",
+    name: "Recommender",
+    key: "recommender",
+    route: "/recommender",
+    icon: <Settings size="12px" />,
+    component: Recommender,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Job Desc",
+    key: "jobDesc",
+    route: "/jobdesc",
+    icon: <Settings size="12px" />,
+    component: JobDesc,
+    noCollapse: true,
+  },
   { type: "title", title: "Account Pages", key: "account-pages" },
   {
     type: "collapse",
@@ -137,6 +158,15 @@ const routes = [
     route: "/authentication/sign-up",
     icon: <SpaceShip size="12px" />,
     component: SignUp,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Company Leaderboard",
+    key: "company-leaderboard",
+    route: "/company-leaderboard",
+    icon: <Office size="12px" />,
+    component: CompanyLeaderboard,
     noCollapse: true,
   },
 ];
