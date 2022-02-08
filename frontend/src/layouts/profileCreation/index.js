@@ -45,6 +45,8 @@ import { FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
 import SuiButton from "components/SuiButton";
 import Icon from "@mui/material/Icon";
 
+import "./index.css"
+
 
 
 // Images
@@ -57,6 +59,10 @@ import Icon from "@mui/material/Icon";
 // import team4 from "assets/images/team-4.jpg";
 
 function Overview() {
+  const redirectToRecommender = () => {
+    alert("YOU ARE GREAT");
+  }
+
   return (
     <DashboardLayout>
       <Header />
@@ -67,12 +73,12 @@ function Overview() {
           <Grid item xs={12} md={6} xl={6}>
             <CreateProfileCard
               title="profile information"
-              description="JOKE OF THE YEAR"
+              description="I am deaf and may require hearing aids during work meetings."
               info={{
-                fullName: "Alec M. Thompson",
-                mobile: "(44) 123 1234 123",
+                fullName: "Alex M. Thompson",
+                mobile: "+65 1234 5678",
                 email: "alecthompson@mail.com",
-                // location: "USA",
+                location: "Singapore",
               }}
               social={[
                 {
@@ -101,8 +107,12 @@ function Overview() {
             <ProfilesList title="conversations" profiles={profilesListData} />
           </Grid> */}
         </Grid>
+        <div className="text-center padding-top">
+        <SuiButton variant="gradient" color="dark" onClick={redirectToRecommender} >
+          &nbsp;Recommend me!
+        </SuiButton>
+        </div>
       </SuiBox>
-      
       <Footer />
     </DashboardLayout>
   );
