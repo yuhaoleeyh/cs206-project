@@ -48,6 +48,12 @@ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "contex
 // Images
 import brand from "assets/images/logo-ct.png";
 
+import AppContext from "layouts/profileCreation/AppContext.js";
+
+import Dashboard from "layouts/dashboard";
+import Tables from "layouts/tables";
+
+
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
@@ -95,6 +101,22 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
+  const [nameValue, setNameValue] = useState("Alex Thompson")
+  const [emailValue, setEmailValue] = useState("alext@mails.com")
+  const [mobileValue, setMobileValue] = useState("+65 1234 5678")
+  const [locationValue, setLocationValue] = useState("Bukit Timah")
+
+  const userSettings = {
+    name: nameValue,
+    email: emailValue, 
+    mobile: mobileValue,
+    location: locationValue,
+    setNameValue,
+    setEmailValue,
+    setMobileValue,
+    setLocationValue
+};
+
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
       if (route.collapse) {
@@ -102,7 +124,11 @@ export default function App() {
       }
 
       if (route.route) {
-        return <Route exact path={route.route} component={route.component} key={route.key} />;
+        console.log(userSettings)
+        return (
+          
+           <Route exact path={route.route} component={route.component} key={route.key} />
+        )
       }
 
       return null;
@@ -152,8 +178,12 @@ export default function App() {
         )}
         {layout === "vr" && <Configurator />}
         <Switch>
-          {getRoutes(routes)}
+          <AppContext.Provider value={userSettings}>
+            {getRoutes(routes)}
+          
+
           <Redirect from="*" to="/dashboard" />
+          </AppContext.Provider>
         </Switch>
       </ThemeProvider>
     </CacheProvider>
@@ -176,8 +206,10 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Switch>
+      <AppContext.Provider value={userSettings}>
         {getRoutes(routes)}
         <Redirect from="*" to="/dashboard" />
+        </AppContext.Provider>
       </Switch>
     </ThemeProvider>
   );

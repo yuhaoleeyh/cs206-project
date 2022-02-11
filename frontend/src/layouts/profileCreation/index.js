@@ -47,6 +47,10 @@ import Icon from "@mui/material/Icon";
 
 import "./index.css"
 
+import { useState, useEffect, React, useContext } from 'react'
+
+import AppContext from './AppContext';
+
 
 
 // Images
@@ -59,9 +63,25 @@ import "./index.css"
 // import team4 from "assets/images/team-4.jpg";
 
 function Overview() {
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+  const myContext = useContext(AppContext);
+
   const redirectToRecommender = () => {
     alert("YOU ARE GREAT");
   }
+
+  useEffect(() => { 
+    console.log("YOU ARE A GENIUS")
+    console.log(myContext)
+    console.log(myContext.name)
+    setName(myContext.name)
+    setMobile(myContext.mobile)
+    setEmail(myContext.email)
+    setLocation(myContext.location)
+  }, []);
 
   return (
     <DashboardLayout>
@@ -75,10 +95,10 @@ function Overview() {
               title="profile information"
               description="I am deaf and may require hearing aids during work meetings."
               info={{
-                fullName: "Alex M. Thompson",
-                mobile: "+65 1234 5678",
-                email: "alecthompson@mail.com",
-                location: "Singapore",
+                fullName: nameSetting,
+                mobile: mobileSetting,
+                email: emailSetting,
+                location: locationSetting,
               }}
               social={[
                 {

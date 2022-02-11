@@ -43,20 +43,28 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
-import React, { useState, useContext } from 'react';
-
 
 import "./index.css"
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
+import { useState, useEffect, React, useContext } from 'react'
 
+import AppContext from '../../../../layouts/profileCreation/AppContext.js';
 
 function CreateProfileCard({ title, description, info, social, action }) {
   const labels = [];
   const values = [];
   const { socialMediaColors } = colors;
   const { size } = typography;
+
+  const myContext = useContext(AppContext);
+
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+
 
   const {
     transcript,
@@ -162,6 +170,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        value = {myContext.name}
       />
       </SuiBox>
       <SuiBox p={2}>
@@ -177,6 +186,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        value = {myContext.mobile}
       />
       </SuiBox>
       <SuiBox p={2}>
@@ -192,13 +202,15 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        value = {myContext.email}
       />
       </SuiBox>
       <SuiBox p={2}>
 
         <TextField
         id="input-with-icon-textfield"
-        label="Status"
+        label="Location"
+        value = {myContext.location}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
