@@ -45,6 +45,15 @@ import { FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
 import SuiButton from "components/SuiButton";
 import Icon from "@mui/material/Icon";
 
+import "./index.css"
+
+import { useState, useEffect, React, useContext } from 'react'
+
+
+import AppContext from './AppContext';
+
+
+
 
 
 // Images
@@ -57,6 +66,27 @@ import Icon from "@mui/material/Icon";
 // import team4 from "assets/images/team-4.jpg";
 
 function Overview() {
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+  const [descriptionSetting, setDescription] = useState("")
+  const myContext = useContext(AppContext);
+
+  const redirectToRecommender = () => {
+    alert("YOU ARE GREAT");
+  }
+
+
+  useEffect(() => { 
+    console.log(myContext.description)
+    setName(myContext.name)
+    setMobile(myContext.mobile)
+    setEmail(myContext.email)
+    setLocation(myContext.location)
+    setDescription(myContext.description)
+  }, []);
+
   return (
     <DashboardLayout>
       <Header />
@@ -67,12 +97,12 @@ function Overview() {
           <Grid item xs={12} md={6} xl={6}>
             <CreateProfileCard
               title="profile information"
-              description="JOKE OF THE YEAR"
+              description= {descriptionSetting}
               info={{
-                fullName: "Alec M. Thompson",
-                mobile: "(44) 123 1234 123",
-                email: "alecthompson@mail.com",
-                // location: "USA",
+                fullName: nameSetting,
+                mobile: mobileSetting,
+                email: emailSetting,
+                location: locationSetting,
               }}
               social={[
                 {
@@ -101,8 +131,12 @@ function Overview() {
             <ProfilesList title="conversations" profiles={profilesListData} />
           </Grid> */}
         </Grid>
+        <div className="text-center padding-top">
+        <SuiButton variant="gradient" color="dark" onClick={redirectToRecommender} >
+          &nbsp;Recommend me!
+        </SuiButton>
+        </div>
       </SuiBox>
-      
       <Footer />
     </DashboardLayout>
   );

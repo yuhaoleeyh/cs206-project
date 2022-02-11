@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // react-routers components
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // prop-types is library for typechecking of props
 import PropTypes from "prop-types";
@@ -43,20 +43,30 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
-import React, { useState, useContext } from 'react';
-
 
 import "./index.css"
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
+import { useState, useEffect, React, useContext } from 'react'
 
+import AppContext from '../../../../layouts/profileCreation/AppContext.js';
 
 function CreateProfileCard({ title, description, info, social, action }) {
   const labels = [];
   const values = [];
   const { socialMediaColors } = colors;
   const { size } = typography;
+
+  const myContext = useContext(AppContext);
+
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+  const [transcriptResult, setTranscriptResult] = useState("")
+
+  const history = useHistory();
 
   const {
     transcript,
@@ -66,6 +76,13 @@ function CreateProfileCard({ title, description, info, social, action }) {
   } = useSpeechRecognition();
 
   const [displayTranscript, setDisplayTranscript] = useState(true)
+
+  useEffect(() => { 
+    setName(myContext.name)
+    setMobile(myContext.mobile)
+    setEmail(myContext.email)
+    setLocation(myContext.location)
+  }, []);
 
 
 
@@ -112,6 +129,25 @@ function CreateProfileCard({ title, description, info, social, action }) {
   ));
 
   const editOwnProfile = () => {
+    if (editProfile) {
+      stopListening()
+      setTranscriptResult(transcript)
+      myContext.setDescriptionValue(transcript) 
+      myContext.setNameValue(nameSetting)
+      myContext.setMobileValue(mobileSetting)
+      myContext.setEmailValue(emailSetting)
+      myContext.setLocationValue(locationSetting)
+
+      
+
+      setEditProfile(!editProfile);
+
+      const path = '/dashboard'
+      history.push(path)
+      return
+    }
+   
+
     setEditProfile(!editProfile);
   }
 
@@ -162,6 +198,8 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        onChange={e => setName(e.target.value)}
+        value = {nameSetting}
       />
       </SuiBox>
       <SuiBox p={2}>
@@ -177,6 +215,8 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        value = {mobileSetting}
+        onChange={e => setMobile(e.target.value)}
       />
       </SuiBox>
       <SuiBox p={2}>
@@ -192,13 +232,17 @@ function CreateProfileCard({ title, description, info, social, action }) {
           ),
         }}
         variant="standard"
+        value = {emailSetting}
+        onChange={e => setEmail(e.target.value)}
       />
       </SuiBox>
       <SuiBox p={2}>
 
         <TextField
         id="input-with-icon-textfield"
-        label="Status"
+        label="Location"
+        value = {locationSetting}
+        onChange={e => setLocation(e.target.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -220,10 +264,22 @@ function CreateProfileCard({ title, description, info, social, action }) {
             Microphone: {listening ? 'on' : 'off'}
           </p>
 
-      <button type = "button" className='btn btn-custom btn-lg btn-padding' onClick={startListening}>Start</button>
-      <button type = "button" className='btn btn-custom btn-lg btn-padding' onClick={stopListening}>Stop</button>
+      <SuiButton variant="gradient" color="dark" onClick={startListening} >
+          &nbsp;Start recording
+        </SuiButton>
+        <SuiButton variant="gradient" color="dark" onClick={stopListening} >
+          &nbsp;Stop
+        </SuiButton>
 
-      <p>{displayTranscript ? transcript : <div>NULL</div>}</p>
+<div className = "full-width">
+      <TextField
+        multiline
+        rows={4}
+        fullWidth
+        label = {transcript}
+      />
+      </div>
+      {/* <p>{displayTranscript ? transcript : <div>NULL</div>}</p> */}
       </SuiBox>
         {/* <SuiBox>
           {renderItems}
