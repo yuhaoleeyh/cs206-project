@@ -49,7 +49,10 @@ import "./index.css"
 
 import { useState, useEffect, React, useContext } from 'react'
 
+
 import AppContext from './AppContext';
+
+
 
 
 
@@ -67,20 +70,21 @@ function Overview() {
   const [mobileSetting, setMobile] = useState("")
   const [emailSetting, setEmail] = useState("")
   const [locationSetting, setLocation] = useState("")
+  const [descriptionSetting, setDescription] = useState("")
   const myContext = useContext(AppContext);
 
   const redirectToRecommender = () => {
     alert("YOU ARE GREAT");
   }
 
+
   useEffect(() => { 
-    console.log("YOU ARE A GENIUS")
-    console.log(myContext)
-    console.log(myContext.name)
+    console.log(myContext.description)
     setName(myContext.name)
     setMobile(myContext.mobile)
     setEmail(myContext.email)
     setLocation(myContext.location)
+    setDescription(myContext.description)
   }, []);
 
   return (
@@ -93,7 +97,7 @@ function Overview() {
           <Grid item xs={12} md={6} xl={6}>
             <CreateProfileCard
               title="profile information"
-              description="I am deaf and may require hearing aids during work meetings."
+              description= {descriptionSetting}
               info={{
                 fullName: nameSetting,
                 mobile: mobileSetting,

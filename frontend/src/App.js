@@ -105,16 +105,19 @@ export default function App() {
   const [emailValue, setEmailValue] = useState("alext@mails.com")
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
+  const [descriptionValue, setDescriptionValue] = useState("I am deaf and may require hearing aids during work meetings.")
 
   const userSettings = {
     name: nameValue,
     email: emailValue, 
     mobile: mobileValue,
     location: locationValue,
+    description: descriptionValue, 
     setNameValue,
     setEmailValue,
     setMobileValue,
-    setLocationValue
+    setLocationValue,
+    setDescriptionValue
 };
 
   const getRoutes = (allRoutes) =>
@@ -124,7 +127,7 @@ export default function App() {
       }
 
       if (route.route) {
-        console.log(userSettings)
+        // console.log(userSettings)
         return (
           
            <Route exact path={route.route} component={route.component} key={route.key} />
