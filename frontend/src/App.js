@@ -105,7 +105,7 @@ export default function App() {
   const [emailValue, setEmailValue] = useState("alext@mails.com")
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
-  const [descriptionValue, setDescriptionValue] = useState("I am deaf and may require hearing aids during work meetings.")
+  const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
 
   const userSettings = {
     name: nameValue,
@@ -170,7 +170,7 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand={brand}
-              brandName="Soft UI Dashboard"
+              brandName="Jobility"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
@@ -198,7 +198,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={brand}
-            brandName="Soft UI Dashboard"
+            brandName="Jobility"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}

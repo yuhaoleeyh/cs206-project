@@ -79,7 +79,6 @@ function Overview() {
 
 
   useEffect(() => { 
-    console.log(myContext.description)
     setName(myContext.name)
     setMobile(myContext.mobile)
     setEmail(myContext.email)
