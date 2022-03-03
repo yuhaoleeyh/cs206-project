@@ -9,7 +9,7 @@ from utils.pwd_utils import get_valid_companies
 
 # Set up NN model
 model = net.NeuralNetwork()
-model.load_state_dict(torch.load('./weights/model_weights.pth'))
+model.load_state_dict(torch.load('./weights/model_weights.pth', map_location=torch.device('cpu')))
 model.eval()
 
 def job_ids_to_listings(y_ints):
