@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -42,9 +42,28 @@ import breakpoints from "assets/theme/base/breakpoints";
 import burceMars from "assets/images/bruce-mars.jpg";
 import curved0 from "assets/images/curved-images/curved0.jpg";
 
+import AppContext from '../../AppContext';
+
+
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
   const [tabValue, setTabValue] = useState(0);
+
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+  const [descriptionSetting, setDescription] = useState("")
+  const myContext = useContext(AppContext);
+
+  const redirectToRecommender = () => {
+    alert("YOU ARE GREAT");
+  }
+
+
+  useEffect(() => { 
+    setName(myContext.name)
+  }, []);
 
   useEffect(() => {
     // A function that sets the orientation state of the tabs.
@@ -112,11 +131,11 @@ function Header() {
           </Grid>
           <Grid item>
             <SuiBox height="100%" mt={0.5} lineHeight={1}>
-              <SuiTypography variant="h5" fontWeight="medium">
-                Alex Thompson
-              </SuiTypography>
+              {/* <SuiTypography variant="h5" fontWeight="medium">
+                {nameSetting}
+              </SuiTypography> */}
               <SuiTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                Unemployed
               </SuiTypography>
             </SuiBox>
           </Grid>

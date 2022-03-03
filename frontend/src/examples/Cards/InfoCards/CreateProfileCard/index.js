@@ -99,6 +99,10 @@ function CreateProfileCard({ title, description, info, social, action }) {
     console.log(transcript)
   }
 
+  const refresh = () => {
+    resetTranscript()
+  }
+
   const [editProfile, setEditProfile] = useState(false);
 
   // Convert this form `objectKey` of the object key in to this `object key`
@@ -144,6 +148,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
 
       const path = '/dashboard'
       history.push(path)
+      // window.location.reload(false);
       return
     }
    
@@ -260,7 +265,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
         
 
         </div>
-        <p>
+          <p>
             Microphone: {listening ? 'on' : 'off'}
           </p>
 
@@ -269,6 +274,9 @@ function CreateProfileCard({ title, description, info, social, action }) {
         </SuiButton>
         <SuiButton variant="gradient" color="dark" onClick={stopListening} >
           &nbsp;Stop
+        </SuiButton>
+        <SuiButton variant="gradient" color="dark" onClick={refresh} >
+          &nbsp;Restart
         </SuiButton>
 
 <div className = "full-width">

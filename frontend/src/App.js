@@ -105,7 +105,8 @@ export default function App() {
   const [emailValue, setEmailValue] = useState("alext@mails.com")
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
-  const [descriptionValue, setDescriptionValue] = useState("I am deaf and may require hearing aids during work meetings.")
+  const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
+  const [questionValue, setQuestionValue] = useState([])
 
   const userSettings = {
     name: nameValue,
@@ -113,11 +114,13 @@ export default function App() {
     mobile: mobileValue,
     location: locationValue,
     description: descriptionValue, 
+    questionList: questionValue,
     setNameValue,
     setEmailValue,
     setMobileValue,
     setLocationValue,
-    setDescriptionValue
+    setDescriptionValue,
+    setQuestionValue
 };
 
   const getRoutes = (allRoutes) =>
@@ -170,7 +173,7 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand={brand}
-              brandName="Soft UI Dashboard"
+              brandName="Jobility"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
@@ -185,7 +188,7 @@ export default function App() {
             {getRoutes(routes)}
           
 
-          <Redirect from="*" to="/dashboard" />
+          {/* <Redirect from="*" to="/dashboard" /> */}
           </AppContext.Provider>
         </Switch>
       </ThemeProvider>
@@ -198,7 +201,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={brand}
-            brandName="Soft UI Dashboard"
+            brandName="Jobility"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
@@ -211,7 +214,7 @@ export default function App() {
       <Switch>
       <AppContext.Provider value={userSettings}>
         {getRoutes(routes)}
-        <Redirect from="*" to="/dashboard" />
+        {/* <Redirect from="*" to="/dashboard" /> */}
         </AppContext.Provider>
       </Switch>
     </ThemeProvider>

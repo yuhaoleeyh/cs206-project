@@ -91,7 +91,7 @@ function PlatformSettings() {
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Are you able to work with your hands?
+            Do you face difficulties working with your hands?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
@@ -106,7 +106,7 @@ function PlatformSettings() {
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-            Are you comfortable talking to strangers?
+            Do you face difficulties talking to strangers?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
@@ -116,7 +116,7 @@ function PlatformSettings() {
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Do you like working with computers?
+            Do you face difficulties working with computers?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
@@ -126,7 +126,7 @@ function PlatformSettings() {
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              I like to use my creativity to make something new
+            Do you face difficulties using your creativity to make something new?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
