@@ -16,7 +16,7 @@ def job_ids_to_listings(y_ints):
     valid_jobs = get_valid_jobs(y_ints)
     print(valid_jobs)
 
-    # jobs_info = json.load( open('./data/jobs_info.json') )
+    jobs_info = json.load( open('./data/jobs_info.json') )
     ret_listings = []
     id = 0
     for i in range(len(valid_jobs)):
@@ -30,8 +30,17 @@ def job_ids_to_listings(y_ints):
             job_listing['company'] = company
             job_listing['id'] = id
 
-            # desc = jobs_info['jobs'][job_title]['jobdesc']
-            # job_listing['desc'] = desc
+            try:    desc = jobs_info['jobs'][job_title]['jobdesc']
+            except: desc = 'No description'
+            job_listing['desc'] = desc
+
+            try:    qualifications = jobs_info['jobs'][job_title]['qualifications']
+            except: qualifications = ['No qualifications specified']
+            job_listing['qualifications'] = qualifications
+
+            try:    disabilities = jobs_info['jobs'][job_title]['disability']
+            except: disabilities = 'No disability information specified'
+            job_listing['disabilities'] = disabilities
 
             ret_listings.append(job_listing)
     
