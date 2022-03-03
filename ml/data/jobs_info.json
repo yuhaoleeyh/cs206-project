@@ -1,0 +1,159 @@
+{
+    "jobs": {
+        "Cashier": {
+            "jobdesc": "We are looking for a Cashier to manage all transactions with customers accurately and efficiently. Cashier responsibilities include receiving payments and issuing receipts, gift-wrapping packages and keeping track of all cash and credit transactions. To be successful in this role, you should have previous experience in a customer service position and good knowledge of how cash registers operate. You should also be available to take evening and weekend shifts occasionally.\nUltimately, you’ll ensure all transactions run smoothly and will help us maximize customer satisfaction.",
+            "qualifications": [
+                "Friendly and positive attitude",
+                "Excellent customer service",
+                "Excellent communication skills",
+                "Ability to make change",
+                "Basic math skills",
+                "Attention to detail",
+                "High school diploma or equivalent desired",
+                "0-1 years of retail experience desired"
+            ]
+        },
+        "Waiter": {
+            "jobdesc": "We are looking for a skilled Waiter or Waitress to take orders and deliver food and beverages to our customers.\nThe right Waiter/Waitress uplifts the dining experience for customers. We are looking for someone who will have the patience, personality and perseverance to thrive in this role.\nWaiter/Waitress responsibilities include greeting and serving customers, providing detailed information on menus, multi-tasking various front-of-the-house duties and collecting the bill. If you are able to perform well in fast-paced environments, we’d like to meet you. To be a successful Waiter or Waitress, you should be polite with our customers and make sure they enjoy their meals. You should also be a team player and be able to effectively communicate with our Kitchen Staff to make sure orders are accurate and delivered promptly.\nKeep in mind that Waiter/Waitress duties may require working in shifts and/or occasionally during weekends and holidays.\nUltimately, it is the duty of our Waiters/Waitresses to provide an excellent overall dining experience for our guests.",
+            "qualifications": [
+                "Proven work experience as a Waiter or Waitress",
+                "Hands-on experience with cash register and ordering information system (e.g. Revel POS or Toast POS)",
+                "Basic math skills",
+                "Attentiveness and patience for customers",
+                "Excellent presentation skills",
+                "Strong organizational and multitasking skills, with the ability to perform well in a fast-paced environment",
+                "Active listening and effective communication skills",
+                "Team spirit",
+                "Flexibility to work in shifts",
+                "High school diploma; food safety training is a plus"
+            ]
+        }
+        },
+        {
+            "Call Center Worker": {
+                "jobdesc": "We are looking for a Call Center Representative that will be the liaison between our company and its current and potential customers. The successful candidate will be able to accept ownership for effectively solving customer issues, complaints and inquiries; keeping customer satisfaction at the core of every decision and behavior.",
+                "qualifications": [
+                    "Previous experience in a customer support role",
+                    "Track record of over-achieving quota",
+                    "Strong phone and verbal communication skills along with active listening",
+                    "Familiarity with CRM systems and practices",
+                    "Customer focus and adaptability to different personality types",
+                    "Ability to multi-task, set priorities and manage time effectively",
+                    "High school degree"
+                ]
+            }
+        },
+        {
+            "Customer Service": {
+                "jobdesc": "We are hiring a customer service representative to manage customer queries and complaints. You will also be asked to process orders, modifications, and escalate complaints across a number of communication channels. To do well in this role you need to be able to remain calm when customers are frustrated and have experience working with computers.\nAs a Customer Service Representative, you will act as a liaison, provide product/services information, answer questions, and resolve any emerging problems that our customer accounts might face with accuracy and efficiency. The best CSRs are genuinely excited to help customers. They’re patient, empathetic, and passionately communicative. Customer service representatives can put themselves in their customers’ shoes and advocate for them when necessary.",
+                "qualifications": [
+                    "Proven customer support experience or experience as a Client Service Representative",
+                    "Track record of over-achieving quota",
+                    "Strong phone contact handling skills and active listening",
+                    "Familiarity with CRM systems and practices",
+                    "Customer orientation and ability to adapt/respond to different types of characters",
+                    "Excellent communication and presentation skills",
+                    "Ability to multi-task, prioritize, and manage time effectively",
+                    "High school diploma"
+                ]
+            }
+        },
+        {
+            "Bank Teller": {
+                "jobdesc": "We are looking for a liable Bank Teller to process all transactions accurately and efficiently in accordance with established policies and procedures. The successful candidate will be the “frontline” of our bank and will play a fundamental role in achieving our customer satisfaction and revenue growth objectives. You must be comfortable making dozens of transactions daily, communicate with different types of clients and sell bank’s products/services.",
+                "qualifications": [
+                    "Proven working experience in banking, personal banking, retail banking or financial services",
+                    "Basic PC knowledge and familiarity with electronic equipment (e.g. cash drawers, receipt validators, money counters)",
+                    "Strong communication and time management skills",
+                    "Customer satisfaction-oriented",
+                    "Attention to detail and mathematical skills",
+                    "Excellent sales skills",
+                    "BS in Finance, Banking or relevant field"
+                ]
+            }
+        },
+        {
+            "Frontline Sales": {
+                "jobdesc": "We are looking for a competitive and trustworthy Sales Executive to help us build up our business activities.\nSales Executive responsibilities include discovering and pursuing new sales prospects, negotiating deals and maintaining customer satisfaction. If you have excellent communication skills and feel comfortable reaching out to potential customers to demonstrate our services and products through email and phone, we’d like to meet you.\nUltimately, you’ll help us meet and surpass business expectations and contribute to our company’s rapid and sustainable growth.",
+                "qualifications": [
+                    "Proven experience as a Sales Executive or relevant role",
+                    "Proficiency in English",
+                    "Excellent knowledge of MS Office",
+                    "Hands-on experience with CRM software is a plus",
+                    "Thorough understanding of marketing and negotiating techniques",
+                    "Fast learner and passion for sales",
+                    "Self-motivated with a results-driven approach",
+                    "Aptitude in delivering attractive presentations",
+                    "High school degree"
+                ]
+            }
+        },
+        {
+            "Factory Worker": {
+                "jobdesc": "We are looking for a factory worker to join our team and help improve our warehouse’s production line.\nYou’ll perform various tasks, including maintaining and operating the machinery and search for potential malfunctions or risks. You’ll transfer the products and equipment, using power tools and forklift trucks. You’ll also keep the facility clean by removing debris and trash to ensure safety. Note that this position demands stamina and a good physical condition, as you’ll have to regularly lift heavy loads.\nIf you are familiar with these tasks and interested in working at a well-functioning warehouse, let’s meet.",
+                "qualifications": [
+                    "Previous experience as a factory worker or similar role in a warehouse",
+                    "Good understanding of how production equipment works",
+                    "Ability to detect potential problems with machinery",
+                    "Knowledge of basic safety rules and precautionary measures  (safety gear will be provided)",
+                    "Ability to lift heavy loads and transfer them manually",
+                    "Good communication and teamwork skills"
+                ]
+            }
+        },
+        {
+            "Food Processing Worker": {
+                "jobdesc": "Our company is looking for highly dependable team players to join our staff as food processing workers. If you’ve always been fascinated with the process of industrial food products and are committed to supporting our brand’s reputation for excellent snack products, then this is the place for you. Food processing workers are responsible for working in the food production line and load ingredients into industrial baking equipment. They also monitor the machinery during the cooking and mixing process to make sure our product quality standards are being met. We offer attractive pay and unlimited snack samples to our workers, so consider joining us today!",
+                "qualifications": [
+                    "Previous experience as a food processing worker or similar role in a warehouse",
+                    "Ability to follow all appropriate safety standards in food production",
+                    "Knowledge of reading comprehension skills",
+                    "Experience working in food production or in an industrial kitchen",
+                    "Knowledge of quality assurance practices"
+                ]
+            }
+        },
+        {
+            "Packing Worker": {
+                "jobdesc": "We are looking for a highly organized packer to prepare items for shipping. The Packer is responsible for cleaning shipping containers, labeling items and packing items into the shipping containers.\nTo be successful as a packer you must have attention to detail and the ability to organize items. A good packer is efficient and careful not to damage items.",
+                "qualifications": [
+                    "Physical strength and stamina",
+                    "Previous experience as a food processing worker or similar role in a warehouse",
+                    "Attention to detail",
+                    "Excellent organizational skills",
+                    "Good communication and teamwork skills"
+                ]
+            }
+        },
+        {
+            "Manufacturing Worker": {
+                "jobdesc": "We are looking for a manufacturing worker to join our team and help improve our warehouse’s production line.\nYou’ll perform various tasks, including maintaining and operating the machinery and search for potential malfunctions or risks. You’ll transfer the products and equipment, using power tools and forklift trucks. You’ll also keep the facility clean by removing debris and trash to ensure safety. Note that this position demands stamina and a good physical condition, as you’ll have to regularly lift heavy loads.\nIf you are familiar with these tasks and interested in working at a well-functioning warehouse, let’s meet.",
+                "qualifications": [
+                    "Previous experience as a manufacturing worker or similar role in a warehouse",
+                    "Good understanding of how production equipment works",
+                    "Ability to detect potential problems with machinery",
+                    "Knowledge of basic safety rules and precautionary measures  (safety gear will be provided)",
+                    "Ability to lift heavy loads and transfer them manually",
+                    "Good communication and teamwork skills"
+                ]
+            }
+        },
+        {
+            "Data Entry": {
+                "jobdesc": "We are looking for a Data Entry Operator to update and maintain information on our company databases and computer systems.\nData Entry Operator responsibilities include collecting and entering data in databases and maintaining accurate records of valuable company information. Our ideal candidate has essential data entry skills, like fast typing with an eye for detail and familiarity with spreadsheets and online forms. You will work with a data team and Data Manager. Previous experience as a Data Entry Clerk or similar position will be considered an advantage.\nUltimately, a successful Data Entry Operator will be responsible for maintaining accurate, up-to-date and useable information in our systems.",
+                "qualifications": [
+                    "Proven data entry work experience, as a Data Entry Operator or Office Clerk",
+                    "Experience with MS Office and data programs",
+                    "Familiarity with administrative duties",
+                    "Experience using office equipment, like fax machine and scanner",
+                    "Typing speed and accuracy",
+                    "Excellent knowledge of correct spelling, grammar and punctuation",
+                    "Attention to detail",
+                    "Confidentiality",
+                    "Organization skills, with an ability to stay focused on assigned tasks",
+                    "High school diploma; additional computer training or certification will be an asset"
+                ]
+            }
+        }
+    ]
+}
