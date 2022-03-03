@@ -146,8 +146,9 @@ function CreateProfileCard({ title, description, info, social, action }) {
 
       setEditProfile(!editProfile);
 
-      const path = '/login'
+      const path = '/dashboard'
       history.push(path)
+      // window.location.reload(false);
       return
     }
    

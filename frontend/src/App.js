@@ -106,6 +106,7 @@ export default function App() {
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
   const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
+  const [questionValue, setQuestionValue] = useState([])
 
   const userSettings = {
     name: nameValue,
@@ -113,11 +114,13 @@ export default function App() {
     mobile: mobileValue,
     location: locationValue,
     description: descriptionValue, 
+    questionList: questionValue,
     setNameValue,
     setEmailValue,
     setMobileValue,
     setLocationValue,
-    setDescriptionValue
+    setDescriptionValue,
+    setQuestionValue
 };
 
   const getRoutes = (allRoutes) =>
@@ -185,7 +188,7 @@ export default function App() {
             {getRoutes(routes)}
           
 
-          <Redirect from="*" to="/dashboard" />
+          {/* <Redirect from="*" to="/dashboard" /> */}
           </AppContext.Provider>
         </Switch>
       </ThemeProvider>
@@ -211,7 +214,7 @@ export default function App() {
       <Switch>
       <AppContext.Provider value={userSettings}>
         {getRoutes(routes)}
-        <Redirect from="*" to="/dashboard" />
+        {/* <Redirect from="*" to="/dashboard" /> */}
         </AppContext.Provider>
       </Switch>
     </ThemeProvider>
