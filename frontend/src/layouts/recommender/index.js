@@ -55,7 +55,7 @@ function Recommender() {
 
   const [data, setData]  = useState([])
 
-  // const [filteredData, setFilteredData] = useState([]); // data that user searched for
+  const [filteredData, setFilteredData] = useState([data]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
   const [buttonLabel, setButtonLabel] = useState("Filter") // label for the button, toggles between Filter / Clear
   const [firstFilter, setFirstFilter] = useState(true); // true only when the Filter button has not been clicked before upon loading page
@@ -120,7 +120,7 @@ function Recommender() {
     }
 
     console.log(tempData);
-    // setFilteredData(tempData);
+    setFilteredData(tempData);
     setFirstFilter(false);
   }
 

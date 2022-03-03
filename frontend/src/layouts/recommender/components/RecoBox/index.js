@@ -6,8 +6,27 @@ import Icon from "@mui/material/Icon";
 // Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
+import SuiButton from "components/SuiButton"
+
+import { Link, useHistory } from "react-router-dom";
+
+
+import { useState, useEffect, React, useContext } from 'react'
+
+import AppContext from '../../../profileCreation/AppContext'
+
 
 function RecoBox({key, company, title, desc}) {
+  const myContext = useContext(AppContext);
+
+  const history = useHistory();
+
+  const saveStateAndRedirect = () => {
+    myContext.setCompanyValue(company)
+    myContext.setTitleValue(title)
+    const path = '/jobdesc'
+    history.push(path)
+  }
 
   return (
     <Card>
@@ -55,9 +74,21 @@ function RecoBox({key, company, title, desc}) {
                   {desc}
                 </SuiTypography>
               </SuiBox>
+              <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} >
+                &nbsp;Read more
+              </SuiButton>
+              {/* <SuiTypography
+                variant="button"
+                fontWeight="regular"
+                textTransform="capitalize"
+                sx={{ lineHeight: 0 }}
+                onClick={() => doSomething}
+              >
+                "HELLO"
+              </SuiTypography>
               <SuiTypography
                 component="a"
-                href="#"
+                onClick={() => doSomething}
                 variant="button"
                 color="text"
                 fontWeight="medium"
@@ -78,10 +109,11 @@ function RecoBox({key, company, title, desc}) {
                     transform: `translate(6px, -0.5px)`,
                   },
                 }}
+                
               >
                 Read more
                 <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-              </SuiTypography>
+              </SuiTypography> */}
             </SuiBox>
           </Grid>
         </Grid>

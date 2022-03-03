@@ -107,6 +107,8 @@ export default function App() {
   const [locationValue, setLocationValue] = useState("Bukit Timah")
   const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
   const [questionValue, setQuestionValue] = useState([0,0,0,0,0,0,0,0])
+  const [companyValue, setCompanyValue] = useState("")
+  const [titleValue, setTitleValue] = useState("")
 
   const userSettings = {
     name: nameValue,
@@ -115,12 +117,16 @@ export default function App() {
     location: locationValue,
     description: descriptionValue, 
     questionList: questionValue,
+    company: companyValue,
+    title: titleValue, 
     setNameValue,
     setEmailValue,
     setMobileValue,
     setLocationValue,
     setDescriptionValue,
-    setQuestionValue
+    setQuestionValue,
+    setCompanyValue,
+    setTitleValue
 };
 
   const getRoutes = (allRoutes) =>

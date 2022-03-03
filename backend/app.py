@@ -26,9 +26,12 @@ def app_get_job_info():
 
     job_title = data['data']['job_title']
     company = data['data']['company']
+
+    print(job_title)
+    print(company)
     
-    job_title = 'Mailman'
-    company = 'SingPost'
+    # job_title = 'Mailman'
+    # company = 'SingPost'
 
     return get_job_info(job_title, company)
 
