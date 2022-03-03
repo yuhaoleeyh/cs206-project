@@ -106,7 +106,7 @@ export default function App() {
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
   const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
-  const [questionValue, setQuestionValue] = useState([])
+  const [questionValue, setQuestionValue] = useState([0,0,0,0,0,0,0,0])
 
   const userSettings = {
     name: nameValue,

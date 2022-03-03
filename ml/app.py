@@ -9,12 +9,16 @@ CORS(app)
 def hello_world():
     return 'Hello, this is cs206 main'
 
-@app.route('/jobs')
+@app.route('/jobs', methods = ['GET', 'POST'])
 def app_get_jobs():
-    disability_qn_vector = [0, 1, 1, 0, 1, 1, 1, 0]
+    data = request.get_json()
+    print(data)
+    disability_qn_vector = data['data']['input']
 
     job_listings = get_job_listings(disability_qn_vector)
     return jsonify(job_listings)
+
+
 
 @app.route('/jobs/info')
 def app_get_job_info():
