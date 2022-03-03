@@ -12,7 +12,7 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -38,7 +38,13 @@ import typography from "assets/theme/base/typography";
 // Dashboard layout components
 import RecoList from "layouts/recommender/components/RecoList";
 
+import axios from 'axios'
+
+import AppContext from '../profileCreation/AppContext';
+
+
 function Recommender() {
+  const myContext = useContext(AppContext);
 
   // hardcoded data, replace with khai loong's 
   const data = [
@@ -53,8 +59,24 @@ function Recommender() {
   const [buttonLabel, setButtonLabel] = useState("Filter") // label for the button, toggles between Filter / Clear
   const [firstFilter, setFirstFilter] = useState(true); // true only when the Filter button has not been clicked before upon loading page
 
+  const [inputToQuestions, setInputToQuestions] = useState([])
   // useEffect activated everytime user types in the search bar
   useEffect(() => {
+    setInputToQuestions(myContext.questionList)
+    console.log(myContext.questionList)
+    axios.post(`http://localhost:5000/hello`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      data: {
+        inputToQuestions
+      }
+    })
+      .then(response => {
+        console.log(response)
+    
+    });
+
     if (search.length === 0 && !firstFilter) {
       setButtonLabel("Clear");
     } else {

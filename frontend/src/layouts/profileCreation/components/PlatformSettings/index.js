@@ -23,87 +23,110 @@ import Switch from "@mui/material/Switch";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
+
 function PlatformSettings() {
-  const [followsMe, setFollowsMe] = useState(true);
-  const [answersPost, setAnswersPost] = useState(false);
-  const [mentionsMe, setMentionsMe] = useState(true);
-  const [newLaunches, setNewLaunches] = useState(false);
-  const [productUpdate, setProductUpdate] = useState(true);
-  const [newsletter, setNewsletter] = useState(true);
+  const [visualImpaired, setVisualImpaired] = useState(true);
+  const [hearingImpaired, setHearingImpaired] = useState(false);
+  const [wheelChairImpaired, setWheelChairImpaired] = useState(true);
+  const [autism, setAutism] = useState(true);
+  const [workHands, setWorkHands] = useState(true);
+  const [talkingToStrangers, setTalkingToStrangers] = useState(false);
+  const [workWithComputers, setWorkWithComputers] = useState(true);
+  const [creativty, setCreativity] = useState(true);
 
   return (
     <Card>
       <SuiBox pt={2} px={2}>
         <SuiTypography variant="h6" fontWeight="medium" textTransform="capitalize">
-          platform settings
+          Additional questions to understand you better
         </SuiTypography>
       </SuiBox>
       <SuiBox pt={1.5} pb={2} px={2} lineHeight={1.25}>
         <SuiTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
-          account
+          Disability questions
         </SuiTypography>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={followsMe} onChange={() => setFollowsMe(!followsMe)} />
+            <Switch checked={visualImpaired} onChange={() => setVisualImpaired(!visualImpaired)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone follows me
+             Are you visually impaired?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={answersPost} onChange={() => setAnswersPost(!answersPost)} />
+            <Switch checked={hearingImpaired} onChange={() => setHearingImpaired(!hearingImpaired)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone answers on my post
+             Do you have hearing problems?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={mentionsMe} onChange={() => setMentionsMe(!mentionsMe)} />
+            <Switch checked={wheelChairImpaired} onChange={() => setWheelChairImpaired(!wheelChairImpaired)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone mentions me
+              Do you require wheelchairs to move around?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={autism} onChange={() => setAutism(!autism)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+              Are you autistic?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={workHands} onChange={() => setWorkHands(!workHands)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+            Do you face difficulties working with your hands?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
         <SuiBox mt={3}>
           <SuiTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
-            application
+            Preferences
           </SuiTypography>
         </SuiBox>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={newLaunches} onChange={() => setNewLaunches(!newLaunches)} />
+            <Switch checked={talkingToStrangers} onChange={() => setTalkingToStrangers(!talkingToStrangers)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              New launches and projects
+            Do you face difficulties talking to strangers?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={productUpdate} onChange={() => setProductUpdate(!productUpdate)} />
+            <Switch checked={workWithComputers} onChange={() => setWorkWithComputers(!workWithComputers)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Monthly product updates
+            Do you face difficulties working with computers?
             </SuiTypography>
           </SuiBox>
         </SuiBox>
         <SuiBox display="flex" py={1} mb={0.25}>
           <SuiBox mt={0.25}>
-            <Switch checked={newsletter} onChange={() => setNewsletter(!newsletter)} />
+            <Switch checked={creativty} onChange={() => setCreativity(!creativty)} />
           </SuiBox>
           <SuiBox width="80%" ml={2}>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              Subscribe to newsletter
+            Do you face difficulties using your creativity to make something new?
             </SuiTypography>
           </SuiBox>
         </SuiBox>

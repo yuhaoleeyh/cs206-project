@@ -112,11 +112,11 @@ function Header() {
           </Grid>
           <Grid item>
             <SuiBox height="100%" mt={0.5} lineHeight={1}>
-              <SuiTypography variant="h5" fontWeight="medium">
+              {/* <SuiTypography variant="h5" fontWeight="medium">
                 Alex Thompson
-              </SuiTypography>
+              </SuiTypography> */}
               <SuiTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                Unemployed
               </SuiTypography>
             </SuiBox>
           </Grid>

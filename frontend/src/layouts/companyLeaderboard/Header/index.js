@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -40,30 +40,11 @@ import breakpoints from "assets/theme/base/breakpoints";
 
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";
-import curved0 from "assets/images/curved-images/curved0.jpg";
-
-import AppContext from '../../AppContext';
-
+import leaderboardHeader from "assets/images/leaderboard-header.png";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
   const [tabValue, setTabValue] = useState(0);
-
-  const [nameSetting, setName] = useState("")
-  const [mobileSetting, setMobile] = useState("")
-  const [emailSetting, setEmail] = useState("")
-  const [locationSetting, setLocation] = useState("")
-  const [descriptionSetting, setDescription] = useState("")
-  const myContext = useContext(AppContext);
-
-  const redirectToRecommender = () => {
-    alert("YOU ARE GREAT");
-  }
-
-
-  useEffect(() => { 
-    setName(myContext.name)
-  }, []);
 
   useEffect(() => {
     // A function that sets the orientation state of the tabs.
@@ -89,72 +70,24 @@ function Header() {
 
   return (
     <SuiBox position="relative">
-      <DashboardNavbar absolute light />
+      <DashboardNavbar absolute dark />
       <SuiBox
         display="flex"
         alignItems="center"
         position="relative"
-        minHeight="18.75rem"
+        minHeight="50.75rem"
         borderRadius="xl"
         sx={{
           backgroundImage: ({ functions: { rgba, linearGradient }, palette: { gradients } }) =>
             `${linearGradient(
-              rgba(gradients.info.main, 0.6),
-              rgba(gradients.info.state, 0.6)
-            )}, url(${curved0})`,
+              rgba(gradients.light.main, 0.1),
+              rgba(gradients.light.state, 0.1)
+            )}, url(${leaderboardHeader})`,
           backgroundSize: "cover",
           backgroundPosition: "50%",
           overflow: "hidden",
         }}
       />
-      <Card
-        sx={{
-          backdropFilter: `saturate(200%) blur(30px)`,
-          backgroundColor: ({ functions: { rgba }, palette: { white } }) => rgba(white.main, 0.8),
-          boxShadow: ({ boxShadows: { navbarBoxShadow } }) => navbarBoxShadow,
-          position: "relative",
-          mt: -8,
-          mx: 3,
-          py: 2,
-          px: 2,
-        }}
-      >
-        <Grid container spacing={3} alignItems="center">
-          <Grid item>
-            <SuiAvatar
-              src={burceMars}
-              alt="profile-image"
-              variant="rounded"
-              size="xl"
-              shadow="sm"
-            />
-          </Grid>
-          <Grid item>
-            <SuiBox height="100%" mt={0.5} lineHeight={1}>
-              {/* <SuiTypography variant="h5" fontWeight="medium">
-                {nameSetting}
-              </SuiTypography> */}
-              <SuiTypography variant="button" color="text" fontWeight="medium">
-                Unemployed
-              </SuiTypography>
-            </SuiBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
-            <AppBar position="static">
-              <Tabs
-                orientation={tabsOrientation}
-                value={tabValue}
-                onChange={handleSetTabValue}
-                sx={{ background: "transparent" }}
-              >
-                <Tab label="App" icon={<Cube />} />
-                <Tab label="Message" icon={<Document />} />
-                <Tab label="Settings" icon={<Settings />} />
-              </Tabs>
-            </AppBar>
-          </Grid>
-        </Grid>
-      </Card>
     </SuiBox>
   );
 }

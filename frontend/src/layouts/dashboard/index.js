@@ -28,6 +28,7 @@ import Footer from "examples/Footer";
 import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
+import { useState, useEffect, React, useContext } from 'react'
 
 // Soft UI Dashboard React base styles
 import typography from "assets/theme/base/typography";
@@ -42,9 +43,19 @@ import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
 
+import { Link, useHistory } from "react-router-dom";
+
+
 function Dashboard() {
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
+
+  const history = useHistory();
+
+  useEffect(() => { 
+    const path = '/profile'
+      history.push(path)
+  }, []);
 
   return (
     <DashboardLayout>

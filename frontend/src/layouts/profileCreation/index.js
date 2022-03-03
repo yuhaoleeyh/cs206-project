@@ -16,6 +16,8 @@ Coded by www.creative-tim.com
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import { Link, useHistory } from "react-router-dom";
+
 
 // @mui icons
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -29,45 +31,106 @@ import SuiTypography from "components/SuiTypography";
 // Soft UI Dashboard React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import Footer from "examples/Footer";
-import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
+import CreateProfileCard from "examples/Cards/InfoCards/CreateProfileCard";
 import ProfilesList from "examples/Lists/ProfilesList";
 // import DefaultProjectCard from "examples/Cards/ProjectCards/DefaultProjectCard";
 // import PlaceholderCard from "examples/Cards/PlaceholderCard";
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
-import PlatformSettings from "layouts/profile/components/PlatformSettings";
+import PlatformSettings from "layouts/profileCreation/components/PlatformSettings";
 
 // Data
-import profilesListData from "layouts/profile/data/profilesListData";
+import profilesListData from "layouts/profileCreation/data/profilesListData";
+
+import { FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
+import SuiButton from "components/SuiButton";
+import Icon from "@mui/material/Icon";
+import Switch from "@mui/material/Switch";
+
+import "./index.css"
+
+import { useState, useEffect, React, useContext } from 'react'
+
+import axios from 'axios';
+
+import AppContext from './AppContext';
+
+
+
+
+
 
 // Images
 // import homeDecor1 from "assets/images/home-decor-1.jpg";
 // import homeDecor2 from "assets/images/home-decor-2.jpg";
 // import homeDecor3 from "assets/images/home-decor-3.jpg";
-import team1 from "assets/images/team-1.jpg";
+// import team1 from "assets/images/team-1.jpg";
 // import team2 from "assets/images/team-2.jpg";
 // import team3 from "assets/images/team-3.jpg";
 // import team4 from "assets/images/team-4.jpg";
 
 function Overview() {
+  const history = useHistory();
+
+  const [nameSetting, setName] = useState("")
+  const [mobileSetting, setMobile] = useState("")
+  const [emailSetting, setEmail] = useState("")
+  const [locationSetting, setLocation] = useState("")
+  const [descriptionSetting, setDescription] = useState("")
+  const myContext = useContext(AppContext);
+
+  const [visualImpaired, setVisualImpaired] = useState(false);
+  const [hearingImpaired, setHearingImpaired] = useState(false);
+  const [wheelChairImpaired, setWheelChairImpaired] = useState(false);
+  const [autism, setAutism] = useState(false);
+  const [workHands, setWorkHands] = useState(false);
+  const [talkingToStrangers, setTalkingToStrangers] = useState(false);
+  const [workWithComputers, setWorkWithComputers] = useState(false);
+  const [creativity, setCreativity] = useState(false);
+
+  const redirectToRecommender = () => {
+    
+    const inputToQuestions = [visualImpaired, hearingImpaired, wheelChairImpaired, autism, workHands, talkingToStrangers, creativity]
+    for (let i = 0; i < inputToQuestions.length; i += 1) {
+      if (inputToQuestions[i]) {
+        inputToQuestions[i] = 1
+      } else {
+        inputToQuestions[i] = 0
+      }
+    }
+
+    console.log(inputToQuestions)
+    myContext.setQuestionValue(inputToQuestions)
+    const path = '/recommender'
+    history.push(path)
+  }
+
+
+  useEffect(() => { 
+    setName(myContext.name)
+    setMobile(myContext.mobile)
+    setEmail(myContext.email)
+    setLocation(myContext.location)
+    setDescription(myContext.description)
+  }, []);
+
   return (
     <DashboardLayout>
       <Header />
+      
       <SuiBox mt={5} mb={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} xl={4}>
-            <PlatformSettings />
-          </Grid>
-          <Grid item xs={12} md={6} xl={4}>
-            <ProfileInfoCard
+
+          <Grid item xs={12} md={6} xl={6}>
+            <CreateProfileCard
               title="profile information"
-              description="JOKE OF THE YEAR"
+              description= {descriptionSetting}
               info={{
-                fullName: "Alec M. Thompson",
-                mobile: "(44) 123 1234 123",
-                email: "alecthompson@mail.com",
-                location: "USA",
+                fullName: nameSetting,
+                mobile: mobileSetting,
+                email: emailSetting,
+                location: locationSetting,
               }}
               social={[
                 {
@@ -89,28 +152,115 @@ function Overview() {
               action={{ route: "", tooltip: "Edit Profile" }}
             />
           </Grid>
-          <Grid item xs={12} xl={4}>
-            <ProfilesList title="conversations" profiles={profilesListData} />
-          </Grid>
-        </Grid>
+          <Grid item xs={12} md={6} xl={6}>
+          <Card>
+      <SuiBox pt={2} px={2}>
+        <SuiTypography variant="h6" fontWeight="medium" textTransform="capitalize">
+          Additional questions to understand you better
+        </SuiTypography>
       </SuiBox>
-      <SuiBox mb={3}>
-        <Card>
-          <SuiBox pt={2} px={2}>
-            <SuiBox mb={0.5}>
-              <SuiTypography variant="h6" fontWeight="medium">
-                Projects
-              </SuiTypography>
-            </SuiBox>
-            <SuiBox mb={1}>
-              <SuiTypography variant="button" fontWeight="regular" color="text">
-                Architects design houses
-              </SuiTypography>
-            </SuiBox>
+      <SuiBox pt={1.5} pb={2} px={2} lineHeight={1.25}>
+        <SuiTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
+          Disability questions
+        </SuiTypography>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={visualImpaired} onChange={() => setVisualImpaired(!visualImpaired)} />
           </SuiBox>
-        </Card>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+             Are you visually impaired?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={hearingImpaired} onChange={() => setHearingImpaired(!hearingImpaired)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+             Do you have hearing problems?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={wheelChairImpaired} onChange={() => setWheelChairImpaired(!wheelChairImpaired)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+              Do you require wheelchairs to move around?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={autism} onChange={() => setAutism(!autism)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+              Are you autistic?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={workHands} onChange={() => setWorkHands(!workHands)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+            Do you face difficulties working with your hands?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox mt={3}>
+          <SuiTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
+            Preferences
+          </SuiTypography>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={talkingToStrangers} onChange={() => setTalkingToStrangers(!talkingToStrangers)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+            Do you face difficulties talking to strangers?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={workWithComputers} onChange={() => setWorkWithComputers(!workWithComputers)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+            Do you face difficulties working with computers?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
+        <SuiBox display="flex" py={1} mb={0.25}>
+          <SuiBox mt={0.25}>
+            <Switch checked={creativity} onChange={() => setCreativity(!creativity)} />
+          </SuiBox>
+          <SuiBox width="80%" ml={2}>
+            <SuiTypography variant="button" fontWeight="regular" color="text">
+            Do you face difficulties using your creativity to make something new?
+            </SuiTypography>
+          </SuiBox>
+        </SuiBox>
       </SuiBox>
-
+    </Card>
+          </Grid>
+          {/* <Grid item xs={12} xl={4}>
+            <ProfilesList title="conversations" profiles={profilesListData} />
+          </Grid> */}
+        </Grid>
+        <div className="text-center padding-top">
+        <SuiButton variant="gradient" color="dark" onClick={redirectToRecommender} >
+          &nbsp;Recommend me!
+        </SuiButton>
+        </div>
+      </SuiBox>
       <Footer />
     </DashboardLayout>
   );
