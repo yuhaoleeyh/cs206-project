@@ -40,7 +40,7 @@ import breakpoints from "assets/theme/base/breakpoints";
 
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";
-import leaderboardHeader from "assets/images/leaderboard-header.png";
+import leaderboardHeader from "assets/images/leaderboard-header6.jpg";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
@@ -69,13 +69,14 @@ function Header() {
   const handleSetTabValue = (event, newValue) => setTabValue(newValue);
 
   return (
-    <SuiBox position="relative">
+    // <SuiBox position="relative">
+    <>
       <DashboardNavbar absolute dark />
       <SuiBox
         display="flex"
         alignItems="center"
         position="relative"
-        minHeight="50.75rem"
+        minHeight="40.75rem"
         borderRadius="xl"
         sx={{
           backgroundImage: ({ functions: { rgba, linearGradient }, palette: { gradients } }) =>
@@ -83,12 +84,12 @@ function Header() {
               rgba(gradients.light.main, 0.1),
               rgba(gradients.light.state, 0.1)
             )}, url(${leaderboardHeader})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "50%",
-          overflow: "hidden",
+          backgroundRepeat: "no-repeat"
         }}
       />
-    </SuiBox>
+    </>
   );
 }
 
