@@ -91,7 +91,7 @@ function Overview() {
 
   const redirectToRecommender = () => {
     
-    const inputToQuestions = [visualImpaired, hearingImpaired, wheelChairImpaired, autism, workHands, talkingToStrangers, creativity]
+    const inputToQuestions = [visualImpaired, hearingImpaired, wheelChairImpaired, autism, workHands, talkingToStrangers, workWithComputers, creativity]
     for (let i = 0; i < inputToQuestions.length; i += 1) {
       if (inputToQuestions[i]) {
         inputToQuestions[i] = 1

@@ -46,36 +46,48 @@ import AppContext from '../profileCreation/AppContext';
 function Recommender() {
   const myContext = useContext(AppContext);
 
-  // hardcoded data, replace with khai loong's 
-  const data = [
-    {id: 1, company : "Koufu", title : "Software Engineer", desc : "Job description. Lorem ipsum dolor sit amet."},
-    {id: 2, company : "SMU", title : "Cleaner", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
-    {id: 3, company : "Google", title : "Chef", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
-    {id: 4, company : "DBS Bank", title : "Comedian", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
-  ]
+  // const data = [
+  //   {id: 1, company : "Koufu", title : "Software Engineer", desc : "Job description. Lorem ipsum dolor sit amet."},
+  //   {id: 2, company : "SMU", title : "Cleaner", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
+  //   {id: 3, company : "Google", title : "Chef", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
+  //   {id: 4, company : "DBS Bank", title : "Comedian", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
+  // ]
 
-  const [filteredData, setFilteredData] = useState(data); // data that user searched for
+  const [data, setData]  = useState([])
+
+  const [filteredData, setFilteredData] = useState([data]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
   const [buttonLabel, setButtonLabel] = useState("Filter") // label for the button, toggles between Filter / Clear
   const [firstFilter, setFirstFilter] = useState(true); // true only when the Filter button has not been clicked before upon loading page
 
   const [inputToQuestions, setInputToQuestions] = useState([])
-  // useEffect activated everytime user types in the search bar
-  useEffect(() => {
+
+
+  useEffect(() => { 
     setInputToQuestions(myContext.questionList)
     console.log(myContext.questionList)
-    axios.post(`http://localhost:5000/hello`, {
+    axios.post(`http://127.0.0.1:5000/jobs`, {
       headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+      
       },
       data: {
-        inputToQuestions
+        'input': myContext.questionList
       }
     })
       .then(response => {
-        console.log(response)
+        console.log(typeof(response.data))
+        console.log(response.data[0])
+       setData(response.data)
     
     });
+  }, []);
+
+  
+
+  // useEffect activated everytime user types in the search bar
+
+  useEffect(() => {
 
     if (search.length === 0 && !firstFilter) {
       setButtonLabel("Clear");
@@ -87,7 +99,6 @@ function Recommender() {
   // handles the case when user types in search bar 
   const handleTyping = event => {
     setSearch(event.target.value);
-    // console.log(event.target.value);
   }
 
   // handles the case when user clicks Filter / Clear 
@@ -133,7 +144,7 @@ function Recommender() {
           </Grid>
         </Grid>
       </SuiBox>
-      <RecoList jobs={filteredData}/>
+      <RecoList jobs={data}/>
       <Footer />
     </DashboardLayout>
   );

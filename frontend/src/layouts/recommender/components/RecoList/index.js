@@ -30,7 +30,7 @@ function RecoList({jobs}) {
               <RecoBox
                 key={job.id}
                 company={job.company}
-                title={job.title}
+                title={job.job_title}
                 desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
               />
             </Grid>
