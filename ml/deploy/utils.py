@@ -60,3 +60,24 @@ def get_job_listings(disability_qn_vector):
 
     return job_ids_to_listings(y_ints)
 
+def get_job_info(job_title, company):
+    jobs_info = json.load( open('./data/jobs_info.json') )
+
+    job_listing = {}
+    job_listing['job_title'] = job_title
+    job_listing['id'] = 1
+    job_listing['company'] = company
+
+    try:    desc = jobs_info['jobs'][job_title]['jobdesc']
+    except: desc = 'No description'
+    job_listing['desc'] = desc
+
+    try:    qualifications = jobs_info['jobs'][job_title]['qualifications']
+    except: qualifications = ['No qualifications specified']
+    job_listing['qualifications'] = qualifications
+
+    try:    disabilities = jobs_info['jobs'][job_title]['disability']
+    except: disabilities = 'No disability information specified'
+    job_listing['disabilities'] = disabilities
+
+    return job_listing
