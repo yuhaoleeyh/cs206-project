@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from deploy.utils import get_job_listings, get_job_info
+from deploy.utils import get_job_listings, get_job_info, get_explanations
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -8,6 +8,16 @@ CORS(app)
 @app.route('/')
 def hello_world():
     return 'Hello, this is cs206 main'
+
+@app.route('/explanations', methods = ['GET', 'POST'])
+def app_get_explanation_for_recommendation():
+    # disability_qn_vector = [0,1,1,1,1,1,1,0]
+    data = request.get_json()
+    print(data)
+    disability_qn_vector = data['data']['input']
+
+    explanations = get_explanations(disability_qn_vector)
+    return jsonify(explanations)
 
 @app.route('/jobs', methods = ['GET', 'POST'])
 def app_get_jobs():
