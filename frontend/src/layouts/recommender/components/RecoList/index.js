@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 // @mui material components
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
@@ -11,18 +12,23 @@ import SuiTypography from "components/SuiTypography";
 import RecoBox from "layouts/recommender/components/RecoBox";
 import Box from "@mui/material/Box";
 
-import "./index.css";
+
+// Loader Component
+import Loader from "react-spinners/ClipLoader";
+
 
 function RecoList({ jobs }) {
-  if (jobs.length === 0) {
-    return (
-      <SuiBox py={3}>
-        <SuiTypography variant="h5" fontWeight="medium" gutterBottom>
-          Sorry, no results found. Please try again!
-        </SuiTypography>
-      </SuiBox>
-    );
-  }
+
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("navy");
+
+  useEffect(() => {
+    if (jobs.length === 0) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [jobs]);
 
   const doThis = () => {
     alert("HELLO WORLD")
@@ -51,11 +57,14 @@ function RecoList({ jobs }) {
         </Grid>
       </Grid>
 
-      <div className="center">
-        <b>OTHER RECOMMENDATIONS</b>
-      </div>
-      <Grid container spacing={3}>
-        {jobs.slice(3).map((job) => (
+
+
+
+      {jobs.length === 0 ? <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
+        <center><h1>Generating Deep Learning Recommendations..</h1>
+        <Loader color={color} loading={loading} size={300} margin={0} /></center>
+      </div> : <Grid container spacing={3}>
+        {jobs.slice(3).map(job => (
           <Grid item xs={12} sm={6} md={6} lg={4}>
             <RecoBox
               key={job.id}
@@ -65,7 +74,7 @@ function RecoList({ jobs }) {
             />
           </Grid>
         ))}
-      </Grid>
+      </Grid>};
     </SuiBox>
   );
 }

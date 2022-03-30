@@ -68,19 +68,7 @@ function JobDescWithImage() {
   return (
     <Card>
       <SuiBox p={2}>
-        <Grid item xs={3} lg={3}>
-          <SuiBox
-            height="100%"
-            display="grid"
-            justifyContent="left"
-            alignItems="center"
-            bgColor=""
-            borderRadius="sm"
-            variant="gradient"
-          >
-            <SuiBox component="img" src={googleimg} alt="companyLogo" maxWidth='200px' width="50%" pt={3} />
-          </SuiBox>
-        </Grid>
+
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
             <SuiBox display="flex" flexDirection="column" height="100%">

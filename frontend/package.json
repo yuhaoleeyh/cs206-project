@@ -23,7 +23,7 @@
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.10",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "chart.js": "3.4.1",
     "chroma-js": "2.1.2",
     "prop-types": "15.7.2",
@@ -36,6 +36,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
     "react-speech-recognition": "^3.9.0",
+    "react-spinners": "^0.11.0",
     "stylis": "4.0.10",
     "stylis-plugin-rtl": "2.1.0",
     "uuid": "8.3.2",
@@ -47,12 +48,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [

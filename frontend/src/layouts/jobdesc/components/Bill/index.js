@@ -63,7 +63,7 @@ function Bill({ name, company, email, vat, noGutter }) {
         <SuiBox mb={1} lineHeight={0}>
           <SuiTypography variant="body2" color="text">
             Review:&nbsp;&nbsp;&nbsp;
-            <SuiTypography variant="body2" textTransform="capitalize">
+            <SuiTypography variant="body2" >
               {company}
             </SuiTypography>
           </SuiTypography>
