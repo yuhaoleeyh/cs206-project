@@ -53,7 +53,7 @@ function Recommender() {
   //   {id: 4, company : "DBS Bank", title : "Comedian", desc : "Job description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam diam nibh, imperdiet id imperdiet id, rhoncus nec nisi."},
   // ]
 
-  const [data, setData]  = useState([])
+  const [data, setData] = useState([])
 
   const [filteredData, setFilteredData] = useState([data]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
@@ -63,27 +63,27 @@ function Recommender() {
   const [inputToQuestions, setInputToQuestions] = useState([])
 
 
-  useEffect(() => { 
+  useEffect(() => {
     setInputToQuestions(myContext.questionList)
     console.log(myContext.questionList)
     axios.post(`http://127.0.0.1:5000/jobs`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
-      
+
       },
       data: {
         'input': myContext.questionList
       }
     })
       .then(response => {
-        console.log(typeof(response.data))
+        console.log(typeof (response.data))
         console.log(response.data[0])
-       setData(response.data)
-    
-    });
+        setData(response.data)
+
+      });
   }, []);
 
-  
+
 
   // useEffect activated everytime user types in the search bar
 
@@ -111,10 +111,10 @@ function Recommender() {
     const tempData = [];
 
     // should we allow them to search in description? (Line 84)
-    for (let i = 0; i < data.length; i+=1) {
+    for (let i = 0; i < data.length; i += 1) {
       if (data[i].company.toLowerCase().includes(keyword.toLowerCase()) ||
-      data[i].title.toLowerCase().includes(keyword.toLowerCase()) ||
-      data[i].desc.toLowerCase().includes(keyword.toLowerCase())) {
+        data[i].title.toLowerCase().includes(keyword.toLowerCase()) ||
+        data[i].desc.toLowerCase().includes(keyword.toLowerCase())) {
         tempData.push(data[i]);
       }
     }
@@ -144,7 +144,7 @@ function Recommender() {
           </Grid>
         </Grid>
       </SuiBox>
-      <RecoList jobs={data}/>
+      <RecoList jobs={data} />
       <Footer />
     </DashboardLayout>
   );
