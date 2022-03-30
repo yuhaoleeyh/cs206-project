@@ -70,48 +70,7 @@ function JobDesc() {
         </SuiBox>
         <SuiBox mt={5} mb={3}>
           <Grid container spacing={3}>
-            {/* <Grid item xs={12} md={6} xl={4}>
-              <PlatformSettings />
-  </Grid> 
-            <Grid item xs={12} md={12} xl={12}>
-              <ProfileInfoCard
-                title="Job Description"
-                description="Minimum qualifications: <br/>
-                Bachelor’s degree or equivalent practical experience.
-                Experience with software development in one or more programming languages, or experience with an advanced degree.
-                Experience with data structures or algorithms in either an academic or industry setting.
-                Preferred qualifications:
-                
-                Master's degree or PhD in Computer Science or related technical field.
-                Experience with Android application development.
-                Experience with performance, large scale systems data analysis, visualization tools, and/or debugging.
-                Experience developing accessible technologies."
-                info={{
-                  fullName: "Alec M. Thompson",
-                  mobile: "(44) 123 1234 123",
-                  email: "alecthompson@mail.com",
-                  location: "USA",
-                }}
-                social={[
-                  {
-                    link: "https://www.facebook.com/CreativeTim/",
-                    icon: <FacebookIcon />,
-                    color: "facebook",
-                  },
-                  {
-                    link: "https://twitter.com/creativetim",
-                    icon: <TwitterIcon />,
-                    color: "twitter",
-                  },
-                  {
-                    link: "https://www.instagram.com/creativetimofficial/",
-                    icon: <InstagramIcon />,
-                    color: "instagram",
-                  },
-                ]}
-                action={{}}
-              />
-              </Grid> */}
+            {}
 
           </Grid>
         </SuiBox>
@@ -120,30 +79,10 @@ function JobDesc() {
             <Grid item xs={12} lg={8}>
               <Grid container spacing={3}> 
 
-                {/* <Grid item xs={12} md={6} xl={3}>
-                  <DefaultInfoCard
-                    icon="account_balance"
-                    title="salary"
-                    description="Belong Interactive"
-                    value="+$2000"
-                  />
-                </Grid>
-                <Grid item xs={12} md={6} xl={3}>
-                  <DefaultInfoCard
-                    icon="paypal"
-                    title="paypal"
-                    description="Freelance Payment"
-                    value="$455.00"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <PaymentMethod />
-</Grid> */}
+                {}
               </Grid>
             </Grid>
-            {/* <Grid item xs={12} lg={4}>
-              <Invoices />
-</Grid> */}
+            {}
           </Grid>
         </SuiBox>
         <SuiBox my={3}>
@@ -151,9 +90,7 @@ function JobDesc() {
             <Grid item xs={12} md={12}>
               <BillingInformation />
             </Grid>
-            {/* <Grid item xs={12} md={5}>
-              <Transactions />
-</Grid> */}
+            {}
           </Grid>
         </SuiBox>
       </SuiBox>
