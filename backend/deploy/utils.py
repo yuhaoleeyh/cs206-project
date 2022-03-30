@@ -81,3 +81,20 @@ def get_job_info(job_title, company):
     job_listing['disabilities'] = disabilities
 
     return job_listing
+
+def get_explanations(disability_qn_vector):
+    explanations = [
+        'Due to visual impairments, we recommend against jobs that require a lot of moving or driving around.',
+        'For PWDs with hearing problems, we avoid suggesting jobs that require customer service and call center jobs.',
+        'If you have autism, we avoid recommending jobs which require excessive customer interactions.',
+        'We do not recommend manufacturing and factory work if you face difficulties working with your hands.',
+        'For PWDs who are less comfortable with speaking to strangers, we recommend jobs that do not need communicating with customers.',
+        'We do not recommend jobs which require computers to those who face difficulties working with computers.',
+        'If you have difficulties with creativity, we do not recommend jobs with creative work tasks.'
+    ]
+
+    ret = []
+    for i in range(len(disability_qn_vector)):
+        if disability_qn_vector[i] == 1:
+            ret.append(explanations[i])
+    return ret
