@@ -36,6 +36,7 @@ import webDeveloper from "assets/images/jobs/web-developer.png";
 
 
 import AppContext from '../../../profileCreation/AppContext'
+import './index.css'
 
 
 function getLogo(title) {
@@ -86,17 +87,18 @@ function RecoBox({key, company, title, desc}) {
   }
 
   const logo = getLogo(title);
-  console.log(title);
 
   return (
-    <Card>
+    <div>
+    <Card onClick = {saveStateAndRedirect} className = "onHover">
       <SuiBox p={2}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
             <SuiBox display="flex" flexDirection="column" height="100%">
-              <SuiBox p={0}>
+            {/* <SuiBox height="100%"> */}
+              <SuiBox>
                 <Grid container alignItems="center">
-                  <Grid item xs={4}>
+                  <Grid item xs = {4}>
                     <SuiBox ml={2} lineHeight={1}
                       variant="gradient"
                       bgColor="info"
@@ -120,13 +122,20 @@ function RecoBox({key, company, title, desc}) {
                         }}>
                         <></>
                     </SuiBox>
+                    {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
+                          &nbsp;Read more
+                        </SuiButton> */}
                   </Grid>
+                  
                   <Grid item xs={8}>
                     <SuiBox ml={1} lineHeight={1}>
                       <SuiBox pt={1} mb={0.5}>
                         <SuiTypography variant="body2" color="text" fontWeight="medium">
                           {company}
                         </SuiTypography>
+                        {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
+                          &nbsp;Read more
+                        </SuiButton> */}
                       </SuiBox>
                       <SuiTypography variant="h5" fontWeight="bold" gutterBottom>
                         {title}
@@ -141,9 +150,6 @@ function RecoBox({key, company, title, desc}) {
                   {desc}
                 </SuiTypography>
               </SuiBox>
-              <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} >
-                &nbsp;Read more
-              </SuiButton>
               {/* <SuiTypography
                 variant="button"
                 fontWeight="regular"
@@ -181,11 +187,15 @@ function RecoBox({key, company, title, desc}) {
                 Read more
                 <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
               </SuiTypography> */}
+              {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "hello">
+                &nbsp;Read more
+              </SuiButton> */}
             </SuiBox>
           </Grid>
         </Grid>
       </SuiBox>
     </Card>
+    </div>
   );
 }
 
