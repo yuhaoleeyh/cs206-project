@@ -71,6 +71,14 @@ function CreateProfileCard({ title, description, info, social, action }) {
 
   const history = useHistory();
 
+  const [text, setText] = useState("")
+  const [listeningBoolean, setListeningBoolean] = useState(false);
+
+  const language = ['en-US', 'zh-CN', 'ko', 'ms-MY']
+  const languageFull = ['English', 'Chinese', 'Korea', 'Malay']
+  const [languageChosen, setLanguageChosen] = useState('en-US');
+  const [languageChosenFull, setLanguageChosenFull] = useState(0);
+
   const {
     transcript,
     listening,
@@ -78,7 +86,6 @@ function CreateProfileCard({ title, description, info, social, action }) {
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
   
-  const [displayTranscript, setDisplayTranscript] = useState(true)
 
   useEffect(() => { 
     setName(myContext.name)
@@ -93,24 +100,28 @@ function CreateProfileCard({ title, description, info, social, action }) {
     setAge(event.target.value);
   };
 
-
-
-
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
+  const changeLanguage = (event) => {
+    setLanguageChosen(language[event.target.value])
+    setLanguageChosenFull(event.target.value)
+    alert(language[event.target.value])
+  }
+
   const startListening = () => {
-    SpeechRecognition.startListening({ continuous: true, language: ['zh-CN', 'en-US']})
+    setListeningBoolean(true);
+    resetTranscript()
+    SpeechRecognition.startListening({ continuous: true, language: languageChosen})
   }
 
   const stopListening = () => {
     SpeechRecognition.stopListening();
-    console.log(transcript)
-  }
-
-  const refresh = () => {
-    resetTranscript()
+    console.log(transcript);
+    setListeningBoolean(false);
+    setText(transcript);
+    
   }
 
   const [editProfile, setEditProfile] = useState(false);
@@ -142,6 +153,8 @@ function CreateProfileCard({ title, description, info, social, action }) {
     </SuiBox>
   ));
 
+  
+
   const editOwnProfile = () => {
     if (editProfile) {
       stopListening()
@@ -164,6 +177,10 @@ function CreateProfileCard({ title, description, info, social, action }) {
    
 
     setEditProfile(!editProfile);
+  }
+
+  const handleWordChange = (event) => {
+    setText(event.target.value);
   }
 
   // Render the card social media icons
@@ -190,6 +207,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
     
     
     <Card sx={{ height: "100%" }}>
+      
       <SuiBox display="flex" justifyContent="space-between" alignItems="center" pt={2} px={2}>
         <SuiTypography variant="h6" fontWeight="medium" textTransform="capitalize">
           {title}
@@ -269,22 +287,28 @@ function CreateProfileCard({ title, description, info, social, action }) {
       />
       </SuiBox>
 
-      {/* <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      {/* <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-standard-label">Language</InputLabel>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
           value={age}
-          label="Age"
           onChange={handleChange}
+          label="Age"
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>English</MenuItem>
+          <MenuItem value={20}>Chinese</MenuItem>
+          <MenuItem value={30}>Malay</MenuItem>
+          <MenuItem value={40}>Korean</MenuItem>
         </Select>
-      </FormControl>
-    </Box> */}
+      </FormControl> */}
+
+
 
       <SuiBox p={2}>
       <SuiTypography variant="h5" fontWeight="medium">
@@ -295,14 +319,25 @@ function CreateProfileCard({ title, description, info, social, action }) {
             Microphone: {listening ? 'on' : 'off'}
           </SuiTypography>
 
+      { !listeningBoolean ? 
+        <form>
+        Select language:
+        <div/>
+        <select name="languages" id="languages" onChange = {changeLanguage} value = {languageChosenFull}>
+          <option value={0}>English</option>
+          <option value={1}>Chinese</option>
+          <option value={2}>Korea</option>
+          <option value={3}>Malay</option>
+        </select>
+
+      </form> : null
+      }
+      
       <SuiButton variant="gradient" color="dark" onClick={startListening} >
           &nbsp;Start recording
         </SuiButton>
         <SuiButton variant="gradient" color="dark" onClick={stopListening} >
           &nbsp;Stop
-        </SuiButton>
-        <SuiButton variant="gradient" color="dark" onClick={refresh} >
-          &nbsp;Restart
         </SuiButton>
 
         
@@ -313,10 +348,11 @@ function CreateProfileCard({ title, description, info, social, action }) {
         multiline
         rows={4}
         fullWidth
-        value = {transcript}
+        value = {listeningBoolean ? transcript: text}
+        onChange = {handleWordChange}
       />
       </div>
-      {/* <p>{displayTranscript ? transcript : <div>NULL</div>}</p> */}
+      <p>{transcript}</p>
       </SuiBox>
         {/* <SuiBox>
           {renderItems}

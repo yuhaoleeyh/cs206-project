@@ -135,7 +135,7 @@ function Header() {
                 {nameSetting}
               </SuiTypography> */}
               <SuiTypography variant="button" color="text" fontWeight="medium">
-                Unemployed
+                Mr Adam
               </SuiTypography>
             </SuiBox>
           </Grid>
