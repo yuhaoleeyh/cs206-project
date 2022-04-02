@@ -46,7 +46,7 @@ import routes from "routes";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Images
-import brand from "assets/images/logo-ct.png";
+import brand from "assets/images/logo-jobility.png";
 
 import AppContext from "layouts/profileCreation/AppContext.js";
 
@@ -109,19 +109,19 @@ export default function App() {
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
   const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
-  const [questionValue, setQuestionValue] = useState([0,0,0,0,0,0,0,0])
+  const [questionValue, setQuestionValue] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const [companyValue, setCompanyValue] = useState("")
   const [titleValue, setTitleValue] = useState("")
 
   const userSettings = {
     name: nameValue,
-    email: emailValue, 
+    email: emailValue,
     mobile: mobileValue,
     location: locationValue,
-    description: descriptionValue, 
+    description: descriptionValue,
     questionList: questionValue,
     company: companyValue,
-    title: titleValue, 
+    title: titleValue,
     setNameValue,
     setEmailValue,
     setMobileValue,
@@ -130,7 +130,7 @@ export default function App() {
     setQuestionValue,
     setCompanyValue,
     setTitleValue
-};
+  };
 
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
@@ -142,10 +142,10 @@ export default function App() {
         // console.log(userSettings)
         return (
           <div>
-          
+
             <Route exact path={route.route} component={route.component} key={route.key} />
             {/* <Route path = "/jobdesc" component = {JobDesc}/> */}
-           </div>
+          </div>
         )
       }
 
@@ -198,9 +198,9 @@ export default function App() {
         <Switch>
           <AppContext.Provider value={userSettings}>
             {getRoutes(routes)}
-          
 
-          <Redirect from="*" to="/profile" />
+
+            <Redirect from="*" to="/profile" />
           </AppContext.Provider>
         </Switch>
       </ThemeProvider>
@@ -224,9 +224,9 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Switch>
-      <AppContext.Provider value={userSettings}>
-        {getRoutes(routes)}
-        <Redirect from="*" to="/profile" />
+        <AppContext.Provider value={userSettings}>
+          {getRoutes(routes)}
+          <Redirect from="*" to="/profile" />
         </AppContext.Provider>
       </Switch>
     </ThemeProvider>
