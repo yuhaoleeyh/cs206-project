@@ -53,6 +53,9 @@ import AppContext from "layouts/profileCreation/AppContext.js";
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 
+import JobDesc from "layouts/jobdesc";
+
+
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -138,8 +141,11 @@ export default function App() {
       if (route.route) {
         // console.log(userSettings)
         return (
+          <div>
           
-           <Route exact path={route.route} component={route.component} key={route.key} />
+            <Route exact path={route.route} component={route.component} key={route.key} />
+            {/* <Route path = "/jobdesc" component = {JobDesc}/> */}
+           </div>
         )
       }
 
@@ -194,7 +200,7 @@ export default function App() {
             {getRoutes(routes)}
           
 
-          {/* <Redirect from="*" to="/dashboard" /> */}
+          <Redirect from="*" to="/profile" />
           </AppContext.Provider>
         </Switch>
       </ThemeProvider>
@@ -212,15 +218,15 @@ export default function App() {
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
-          <Configurator />
-          {configsButton}
+          {/* <Configurator />
+          {configsButton} */}
         </>
       )}
       {layout === "vr" && <Configurator />}
       <Switch>
       <AppContext.Provider value={userSettings}>
         {getRoutes(routes)}
-        <Redirect from="*" to="/dashboard" />
+        <Redirect from="*" to="/profile" />
         </AppContext.Provider>
       </Switch>
     </ThemeProvider>

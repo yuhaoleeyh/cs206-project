@@ -147,7 +147,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </SuiBox>
         {isMini ? null : (
           <SuiBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <SuiBox pr={1}>
+            {/* <SuiBox pr={1}>
               <SuiInput
                 placeholder="Type here..."
                 icon={{ component: "search", direction: "left" }}
@@ -202,7 +202,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
               </IconButton>
               {renderMenu()}
-            </SuiBox>
+            </SuiBox> */}
           </SuiBox>
         )}
       </Toolbar>
