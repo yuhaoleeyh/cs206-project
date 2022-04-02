@@ -144,43 +144,6 @@ function RecoBox({key, company, title, desc, isTop}) {
                   {desc}
                 </SuiTypography>
               </SuiBox>
-              {/* <SuiTypography
-                variant="button"
-                fontWeight="regular"
-                textTransform="capitalize"
-                sx={{ lineHeight: 0 }}
-                onClick={() => doSomething}
-              >
-                "HELLO"
-              </SuiTypography>
-              <SuiTypography
-                component="a"
-                onClick={() => doSomething}
-                variant="button"
-                color="text"
-                fontWeight="medium"
-                sx={{
-                  mt: "auto",
-                  mr: "auto",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-
-                  "& .material-icons-round": {
-                    fontSize: "1.125rem",
-                    transform: `translate(2px, -0.5px)`,
-                    transition: "transform 0.2s cubic-bezier(0.34,1.61,0.7,1.3)",
-                  },
-
-                  "&:hover .material-icons-round, &:focus  .material-icons-round": {
-                    transform: `translate(6px, -0.5px)`,
-                  },
-                }}
-                
-              >
-                Read more
-                <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-              </SuiTypography> */}
               <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
                 &nbsp;Read more
               </SuiButton>
