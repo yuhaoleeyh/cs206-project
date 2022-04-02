@@ -82,7 +82,7 @@ function RecoBox({key, company, title, desc, isTop}) {
   const saveStateAndRedirect = () => {
     myContext.setCompanyValue(company)
     myContext.setTitleValue(title)
-    const path = '/jobdesc'
+    const path = '/job-description'
     history.push(path)
   }
 

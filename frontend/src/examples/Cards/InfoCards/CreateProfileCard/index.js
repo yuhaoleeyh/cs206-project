@@ -211,9 +211,9 @@ function CreateProfileCard({ title, description, info, social, action }) {
           {title}
         </SuiTypography>
         <SuiTypography component={Link} to={action.route} variant="body2" color="secondary">
-          <Tooltip title={action.tooltip} placement="top">
+          {/* <Tooltip title={action.tooltip} placement="top">
             <Icon>edit</Icon>
-          </Tooltip>
+          </Tooltip> */}
         </SuiTypography>
       </SuiBox>
       <SuiBox p={2}>
@@ -397,12 +397,12 @@ function CreateProfileCard({ title, description, info, social, action }) {
         </SuiBox>
         <SuiBox>
           {renderItems}
-          <SuiBox display="flex" py={1} pr={2}>
+          {/* <SuiBox display="flex" py={1} pr={2}>
             <SuiTypography variant="button" fontWeight="bold" textTransform="capitalize">
               social: &nbsp;
             </SuiTypography>
             {renderSocial}
-          </SuiBox>
+          </SuiBox> */}
         </SuiBox>
       </SuiBox>
       <div className = "center">
