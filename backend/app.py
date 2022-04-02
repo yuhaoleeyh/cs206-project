@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, jsonify
 from deploy.utils import get_job_listings, get_job_info, get_explanations
 from flask_cors import CORS
@@ -15,7 +16,8 @@ def app_get_explanation_for_recommendation():
     data = request.get_json()
     print(data)
     disability_qn_vector = data['data']['input']
-
+    if (1 not in disability_qn_vector):
+        disability_qn_vector = [0,1,1,0,1,0,0,0]
     explanations = get_explanations(disability_qn_vector)
     return ' '.join(explanations)
 
