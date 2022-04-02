@@ -16,7 +16,7 @@ def job_ids_to_listings(y_ints):
     valid_jobs = get_valid_jobs(y_ints)
     print(valid_jobs)
 
-    jobs_info = json.load( open('./data/jobs_info.json') )
+    jobs_info = json.load( open('./data/jobs_info.json', encoding='utf-8') )
     ret_listings = []
     id = 0
     for i in range(len(valid_jobs)):
@@ -61,7 +61,7 @@ def get_job_listings(disability_qn_vector):
     return job_ids_to_listings(y_ints)
 
 def get_job_info(job_title, company):
-    jobs_info = json.load( open('./data/jobs_info.json') )
+    jobs_info = json.load( open('./data/jobs_info.json', encoding='utf-8') )
 
     job_listing = {}
     job_listing['job_title'] = job_title
