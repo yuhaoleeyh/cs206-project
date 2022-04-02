@@ -37,7 +37,7 @@ function RecoList({ jobs, filterPresent, explanations }) {
       setJobsDisplayed([])
     }
     else {
-      setJobsDisplayed(shuffle(jobs.slice(0, 23)));
+      setJobsDisplayed(shuffle(jobs).slice(0, 23));
       setLoading(false);
     }
   }, [jobs]);
