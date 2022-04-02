@@ -54,6 +54,7 @@ function Recommender() {
   // ]
 
   const [data, setData] = useState([])
+  const [explanations, setExplanations] = useState([])
 
   const [filteredData, setFilteredData] = useState([data]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
@@ -79,7 +80,26 @@ function Recommender() {
         console.log(typeof (response.data))
         console.log(response.data[0])
         setData(response.data)
+      });
+  }, []);
 
+  useEffect(() => {
+    setInputToQuestions(myContext.questionList)
+    axios.post(`http://127.0.0.1:5000/explanations`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+
+      },
+      data: {
+        'input': myContext.questionList
+      }
+    })
+      .then(response => {
+        console.log(myContext.questionList);
+        console.log(typeof(response.data));
+        console.log("EXP REQUEST");
+        console.log(response.data);
+        setExplanations(response.data)
       });
   }, []);
 
