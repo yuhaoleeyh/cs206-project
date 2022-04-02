@@ -54,6 +54,7 @@ function Recommender() {
   // ]
 
   const [data, setData] = useState([])
+  const [explanations, setExplanations] = useState("")
 
   const [filteredData, setFilteredData] = useState([]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
@@ -81,11 +82,26 @@ function Recommender() {
         console.log(response.data[0])
         setData(response.data)
         setFilteredData(response.data)
-
       });
   }, []);
 
+  useEffect(() => {
+    setInputToQuestions(myContext.questionList)
+    console.log(myContext.questionList)
+    axios.post(`http://127.0.0.1:5000/explanations`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
 
+      },
+      data: {
+        'input': myContext.questionList
+      }
+    })
+      .then(response => {
+        console.log(response.data)
+        setExplanations(response.data)
+      });
+  }, []);
 
   // useEffect activated everytime user types in the search bar
 
@@ -152,7 +168,7 @@ function Recommender() {
           </Grid>
         </Grid>
       </SuiBox>
-      <RecoList jobs={filteredData} filterPresent={filterPresent}/>
+      <RecoList jobs={filteredData} filterPresent={filterPresent} explanations={explanations}/>
       <Footer />
     </DashboardLayout>
   );

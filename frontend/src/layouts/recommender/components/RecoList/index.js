@@ -16,8 +16,10 @@ import Box from "@mui/material/Box";
 // Loader Component
 import Loader from "react-spinners/ClipLoader";
 
+import deepLearning from "assets/images/deep-learning.png";
 
-function RecoList({ jobs, filterPresent }) {
+
+function RecoList({ jobs, filterPresent, explanations }) {
 
   const [jobsDisplayed, setJobsDisplayed] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -37,6 +39,16 @@ function RecoList({ jobs, filterPresent }) {
     }
   }, [jobs]);
 
+  // Setting default values for the props of SuiTypography
+  SuiTypography.defaultProps = {
+    color: "dark",
+    fontWeight: false,
+    textTransform: "none",
+    verticalAlign: "unset",
+    textGradient: false,
+    opacity: 1,
+  };
+
   return (
     <SuiBox py={3}>
       {jobsDisplayed.length === 0 ?
@@ -45,31 +57,88 @@ function RecoList({ jobs, filterPresent }) {
             <Loader color={color} loading={loading} size={300} margin={0} /></center>
         </div> :
         <>
-          {!filterPresent && 
-          <div>
-            <div className="center">
-              <b>After Jobility's deep learning analysis, we recommend the following:</b>
-            </div>
-            <div>&nbsp;</div>
-            <Grid container rowSpacing={5} columnSpacing={{ xs: 10, sm: 10, md: 10 }}>
-              <Grid item xs={2} sm={2} md={2} lg={2} />
-              <Grid item xs={8} sm={8} md={8} lg={8}>
-                {jobsDisplayed.slice(0, 3).map((job) => (
-                  <div>
-                    <RecoBox
-                      key={job.id}
-                      company={job.company}
-                      title={job.job_title}
-                      desc={job.desc.length > 100 ? job.desc.substring(0, 197).concat("...") : job.desc}
-                      isTop
-                    />
-                    <div>&nbsp;</div>
-                  </div>
-                ))}
+          {!filterPresent &&
+            <div>
+              <div className="center">
+                <h1>Deep Learning Recommendations</h1>
+              </div>
+              <Grid container spacing={3}>
+                <Grid item xs={1} sm={1} md={1} lg={1} />
+                <Grid item xs={10} sm={10} md={10} lg={10} className="center" mb={4} mt={2}>
+                  {/* <Card>
+                    <SuiBox pt={2} px={4} pb={2} bgColor="#DBF3FA">
+                      <SuiTypography fontWeight="medium" color="inherit">
+                        <p>{explanations}</p>
+                      </SuiTypography>
+                    </SuiBox>
+                  </Card> */}
+                  <Card>
+                    <SuiBox p={2} bgColor="#DBF3FA">
+                      <Grid container spacing={3}>
+                        <Grid item xs={12} lg={12}>
+                          <SuiBox height="100%">
+                            <SuiBox>
+                              <Grid container alignItems="center">
+                                <Grid item xs={2}>
+                                  <SuiBox ml={2} lineHeight={1}
+                                    variant="gradient"
+                                    bgColor="info"
+                                    color="white"
+                                    width="10rem"
+                                    height="10rem"
+                                    borderRadius="md"
+                                    display="flex"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    sx={{
+                                      backgroundImage: ({ functions: { rgba, linearGradient }, palette: { gradients } }) =>
+                                        `${linearGradient(
+                                          rgba(gradients.light.main, 0.1),
+                                          rgba(gradients.light.state, 0.1)
+                                        )}, url(${deepLearning})`,
+                                      backgroundSize: "contain",
+                                      backgroundPosition: "50%",
+                                      backgroundRepeat: "no-repeat"
+                                    }}>
+                                    <></>
+                                  </SuiBox>
+                                </Grid>
+                                <Grid item xs={10}>
+                                  <SuiBox ml={1} lineHeight={1}>
+                                    <SuiBox pt={1} mb={0.5}>
+                                      <SuiTypography fontWeight="medium" color="inherit">
+                                        <p>{explanations}</p>
+                                      </SuiTypography>
+                                    </SuiBox>
+                                  </SuiBox>
+                                </Grid>
+                              </Grid>
+                            </SuiBox>
+                          </SuiBox>
+                        </Grid>
+                      </Grid>
+                    </SuiBox>
+                  </Card>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>}
-
+              <Grid container rowSpacing={5} columnSpacing={{ xs: 10, sm: 10, md: 10 }}>
+                <Grid item xs={2} sm={2} md={2} lg={2} />
+                <Grid item xs={8} sm={8} md={8} lg={8}>
+                  {jobsDisplayed.slice(0, 3).map((job) => (
+                    <div>
+                      <RecoBox
+                        key={job.id}
+                        company={job.company}
+                        title={job.job_title}
+                        desc={job.desc.length > 100 ? job.desc.substring(0, 197).concat("...") : job.desc}
+                        isTop
+                      />
+                      <div>&nbsp;</div>
+                    </div>
+                  ))}
+                </Grid>
+              </Grid>
+            </div>}
           <Grid container spacing={3}>
             {jobsDisplayed.slice(3).map(job => (
               <Grid item xs={12} sm={6} md={6} lg={4}>
