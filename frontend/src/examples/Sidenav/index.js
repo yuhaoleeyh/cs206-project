@@ -143,7 +143,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
             <Icon sx={{ fontWeight: "bold" }}>close</Icon>
           </SuiTypography>
         </SuiBox>
-        <SuiBox component={NavLink} to="/" display="flex" alignItems="center">
+        <SuiBox component={NavLink} to="/profile" display="flex" alignItems="center">
           {brand && <SuiBox component="img" src={brand} alt="Soft UI Logo" width="2rem" />}
           <SuiBox
             width={!brandName && "100%"}

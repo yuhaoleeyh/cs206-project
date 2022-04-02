@@ -190,8 +190,8 @@ export default function App() {
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
-            <Configurator />
-            {configsButton}
+            {/* <Configurator />
+            {configsButton} */}
           </>
         )}
         {layout === "vr" && <Configurator />}

@@ -125,9 +125,9 @@ const routes = [
   },
   {
     // type: "collapse",
-    name: "Job Desc",
-    key: "jobDesc",
-    route: "/jobdesc",
+    name: "Job Description",
+    key: "Job Description",
+    route: "/job-description",
     icon: <Settings size="12px" />,
     component: JobDesc,
     noCollapse: true,
