@@ -116,7 +116,7 @@ function Header() {
                 Alex Thompson
               </SuiTypography> */}
               <SuiTypography variant="button" color="text" fontWeight="medium">
-                Unemployed
+                Mr Adam
               </SuiTypography>
             </SuiBox>
           </Grid>
@@ -128,9 +128,9 @@ function Header() {
                 onChange={handleSetTabValue}
                 sx={{ background: "transparent" }}
               >
-                <Tab label="App" icon={<Cube />} />
+                {/* <Tab label="App" icon={<Cube />} />
                 <Tab label="Message" icon={<Document />} />
-                <Tab label="Settings" icon={<Settings />} />
+                <Tab label="Settings" icon={<Settings />} /> */}
               </Tabs>
             </AppBar>
           </Grid>

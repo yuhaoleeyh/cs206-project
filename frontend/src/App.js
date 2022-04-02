@@ -101,8 +101,8 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
-  const [nameValue, setNameValue] = useState("Alex Thompson")
-  const [emailValue, setEmailValue] = useState("alext@mails.com")
+  const [nameValue, setNameValue] = useState("Mr Adam")
+  const [emailValue, setEmailValue] = useState("adam@mails.com")
   const [mobileValue, setMobileValue] = useState("+65 1234 5678")
   const [locationValue, setLocationValue] = useState("Bukit Timah")
   const [descriptionValue, setDescriptionValue] = useState("ADD A PROFILE DESCRIPTION")
@@ -220,7 +220,7 @@ export default function App() {
       <Switch>
       <AppContext.Provider value={userSettings}>
         {getRoutes(routes)}
-        {/* <Redirect from="*" to="/dashboard" /> */}
+        <Redirect from="*" to="/dashboard" />
         </AppContext.Provider>
       </Switch>
     </ThemeProvider>
