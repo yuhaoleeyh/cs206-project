@@ -74,7 +74,7 @@ function getLogo(title) {
     return logoMapping[title];
 }
 
-function RecoBox({key, company, title, desc}) {
+function RecoBox({key, company, title, desc, isTop}) {
   const myContext = useContext(AppContext);
 
   const history = useHistory();
@@ -98,7 +98,7 @@ function RecoBox({key, company, title, desc}) {
             {/* <SuiBox height="100%"> */}
               <SuiBox>
                 <Grid container alignItems="center">
-                  <Grid item xs = {4}>
+                  <Grid item xs = {isTop? 2:3}>
                     <SuiBox ml={2} lineHeight={1}
                       variant="gradient"
                       bgColor="info"
@@ -145,7 +145,7 @@ function RecoBox({key, company, title, desc}) {
                 </Grid>
               </SuiBox>
 
-              <SuiBox mb={1}>
+              <SuiBox mb={1} mt={2}>
                 <SuiTypography variant="body2" color="text">
                   {desc}
                 </SuiTypography>
