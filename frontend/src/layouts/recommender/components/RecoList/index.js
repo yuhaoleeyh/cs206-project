@@ -65,13 +65,6 @@ function RecoList({ jobs, filterPresent, explanations }) {
               <Grid container spacing={3}>
                 <Grid item xs={1} sm={1} md={1} lg={1} />
                 <Grid item xs={10} sm={10} md={10} lg={10} className="center" mb={4} mt={2}>
-                  {/* <Card>
-                    <SuiBox pt={2} px={4} pb={2} bgColor="#DBF3FA">
-                      <SuiTypography fontWeight="medium" color="inherit">
-                        <p>{explanations}</p>
-                      </SuiTypography>
-                    </SuiBox>
-                  </Card> */}
                   <Card>
                     <SuiBox p={2} bgColor="#DBF3FA">
                       <Grid container spacing={3}>
@@ -151,7 +144,7 @@ function RecoList({ jobs, filterPresent, explanations }) {
               </Grid>
             ))}
           </Grid>
-        </>};
+        </>}
     </SuiBox>
   );
 }

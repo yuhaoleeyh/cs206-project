@@ -38,7 +38,7 @@ export default {
 
     input: {
       height: pxToRem(22),
-      width: "max-content !important",
+      width: pxToRem(50),
     },
 
     inputSizeSmall: {

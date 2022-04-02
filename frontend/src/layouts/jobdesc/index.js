@@ -24,6 +24,9 @@ import profilesListData from "layouts/profile/data/profilesListData";
 
 import JobDescWithImage from "layouts/jobdesc/components/JobDescWithImage";
 
+import SuiButton from "components/SuiButton";
+
+
 /**
 =========================================================
 * Soft UI Dashboard React - v3.0.0
@@ -57,6 +60,7 @@ import BillingInformation from "layouts/jobdesc/components/BillingInformation";
 import Transactions from "layouts/billing/components/Transactions";
 
 function JobDesc() {
+  
   return (
     <DashboardLayout>
       <DashboardNavbar />

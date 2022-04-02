@@ -56,20 +56,6 @@ import axios from 'axios';
 
 import AppContext from './AppContext';
 
-
-
-
-
-
-// Images
-// import homeDecor1 from "assets/images/home-decor-1.jpg";
-// import homeDecor2 from "assets/images/home-decor-2.jpg";
-// import homeDecor3 from "assets/images/home-decor-3.jpg";
-// import team1 from "assets/images/team-1.jpg";
-// import team2 from "assets/images/team-2.jpg";
-// import team3 from "assets/images/team-3.jpg";
-// import team4 from "assets/images/team-4.jpg";
-
 function Overview() {
   const history = useHistory();
 
@@ -89,7 +75,10 @@ function Overview() {
   const [workWithComputers, setWorkWithComputers] = useState(false);
   const [creativity, setCreativity] = useState(false);
 
+  const [initialQuestionList, setInitialQuestionList] = useState([])
+
   const redirectToRecommender = () => {
+    
     
     const inputToQuestions = [visualImpaired, hearingImpaired, wheelChairImpaired, autism, workHands, talkingToStrangers, workWithComputers, creativity]
     for (let i = 0; i < inputToQuestions.length; i += 1) {
@@ -107,21 +96,57 @@ function Overview() {
 
 
   useEffect(() => { 
+    
     setName(myContext.name)
     setMobile(myContext.mobile)
     setEmail(myContext.email)
     setLocation(myContext.location)
     setDescription(myContext.description)
+    setInitialQuestionList(myContext.questionList)
+
+    if (myContext.questionList[0] === 1) {
+      setVisualImpaired(true);
+    } 
+
+    if (myContext.questionList[1] === 1) {
+      setHearingImpaired(true);
+    } 
+
+    if (myContext.questionList[2] === 1) {
+      setWheelChairImpaired(true);
+    } 
+
+    if (myContext.questionList[3] === 1) {
+      setAutism(true);
+    } 
+
+    if (myContext.questionList[4] === 1) {
+      setWorkHands(true);
+    } 
+
+    if (myContext.questionList[5] === 1) {
+      setTalkingToStrangers(true);
+    } 
+
+    if (myContext.questionList[6] === 1) {
+      setWorkWithComputers(true);
+    } 
+
+    if (myContext.questionList[7] === 1) {
+      setCreativity(true);
+    } 
+
+
   }, []);
 
   return (
     <DashboardLayout>
       <Header />
       
-      <SuiBox mt={5} mb={3}>
+      <SuiBox mt={12} mb={12}>
         <Grid container spacing={3}>
 
-          <Grid item xs={12} md={6} xl={6}>
+          <Grid item xs={12} md={12} xl={6}>
             <CreateProfileCard
               title="profile information"
               description= {descriptionSetting}
