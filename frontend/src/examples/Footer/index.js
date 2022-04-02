@@ -51,7 +51,7 @@ function Footer({ company, links }) {
       alignItems="center"
       px={1.5}
     >
-      <SuiBox
+      {/* <SuiBox
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -73,8 +73,8 @@ function Footer({ company, links }) {
           </SuiTypography>
         </Link>
         for a better web.
-      </SuiBox>
-      <SuiBox
+      </SuiBox> */}
+      {/* <SuiBox
         component="ul"
         sx={({ breakpoints }) => ({
           display: "flex",
@@ -92,7 +92,7 @@ function Footer({ company, links }) {
         })}
       >
         {renderLinks()}
-      </SuiBox>
+      </SuiBox> */}
     </SuiBox>
   );
 }
