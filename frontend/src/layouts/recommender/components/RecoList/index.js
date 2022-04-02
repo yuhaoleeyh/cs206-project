@@ -17,7 +17,7 @@ import Box from "@mui/material/Box";
 import Loader from "react-spinners/ClipLoader";
 
 
-function RecoList({ jobs }) {
+function RecoList({ jobs, filterPresent }) {
 
   const [loading, setLoading] = useState(false);
   const [color, setColor] = useState("navy");
@@ -36,26 +36,29 @@ function RecoList({ jobs }) {
 
   return (
     <SuiBox py={3}>
-      <div className="center">
-        <b>After Jobility's deep learning analysis, we recommend the following:</b>
-      </div>
-      <div>&nbsp;</div>
-      <Grid container rowSpacing={5} columnSpacing={{ xs: 10, sm: 10, md: 10 }}>
-        <Grid item xs={2} sm={2} md={2} lg={2} />
-        <Grid item xs={8} sm={8} md={8} lg={8}>
-          {jobs.slice(0, 3).map((job) => (
-            <div>
-              <RecoBox
-                key={job.id}
-                company={job.company}
-                title={job.job_title}
-                desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
-              />
-              <div>&nbsp;</div>
-            </div>
-          ))}
+      {!filterPresent && 
+      <div>
+        <div className="center">
+          <b>After Jobility's deep learning analysis, we recommend the following:</b>
+        </div>
+        <div>&nbsp;</div>
+        <Grid container rowSpacing={5} columnSpacing={{ xs: 10, sm: 10, md: 10 }}>
+          <Grid item xs={2} sm={2} md={2} lg={2} />
+          <Grid item xs={8} sm={8} md={8} lg={8}>
+            {jobs.slice(0, 3).map((job) => (
+              <div>
+                <RecoBox
+                  key={job.id}
+                  company={job.company}
+                  title={job.job_title}
+                  desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
+                />
+                <div>&nbsp;</div>
+              </div>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
+      </div>}
 
 
 

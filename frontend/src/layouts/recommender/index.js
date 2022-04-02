@@ -55,10 +55,11 @@ function Recommender() {
 
   const [data, setData] = useState([])
 
-  const [filteredData, setFilteredData] = useState([data]); // data that user searched for
+  const [filteredData, setFilteredData] = useState([]); // data that user searched for
   const [search, setSearch] = useState(""); // records the input user types in search bar
   const [buttonLabel, setButtonLabel] = useState("Filter") // label for the button, toggles between Filter / Clear
   const [firstFilter, setFirstFilter] = useState(true); // true only when the Filter button has not been clicked before upon loading page
+  const [filterPresent, setFilterPresent] = useState(false); // true when the filter is applied 
 
   const [inputToQuestions, setInputToQuestions] = useState([])
 
@@ -79,6 +80,7 @@ function Recommender() {
         console.log(typeof (response.data))
         console.log(response.data[0])
         setData(response.data)
+        setFilteredData(response.data)
 
       });
   }, []);
@@ -108,12 +110,12 @@ function Recommender() {
     }
 
     const keyword = search;
+
     const tempData = [];
 
-    // should we allow them to search in description? (Line 84)
     for (let i = 0; i < data.length; i += 1) {
       if (data[i].company.toLowerCase().includes(keyword.toLowerCase()) ||
-        data[i].title.toLowerCase().includes(keyword.toLowerCase()) ||
+        data[i].job_title.toLowerCase().includes(keyword.toLowerCase()) ||
         data[i].desc.toLowerCase().includes(keyword.toLowerCase())) {
         tempData.push(data[i]);
       }
@@ -122,6 +124,12 @@ function Recommender() {
     console.log(tempData);
     setFilteredData(tempData);
     setFirstFilter(false);
+
+    if (tempData.length === data.length) {
+      setFilterPresent(false)
+    } else {
+      setFilterPresent(true)
+    }
   }
 
   return (
@@ -144,7 +152,7 @@ function Recommender() {
           </Grid>
         </Grid>
       </SuiBox>
-      <RecoList jobs={data} />
+      <RecoList jobs={filteredData} filterPresent={filterPresent}/>
       <Footer />
     </DashboardLayout>
   );
