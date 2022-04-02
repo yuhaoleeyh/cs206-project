@@ -39,7 +39,7 @@ import Settings from "examples/Icons/Settings";
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Images
-import burceMars from "assets/images/bruce-mars.jpg";
+import mrAdam from "assets/images/mr-adam.png";
 import curved0 from "assets/images/curved-images/curved0.jpg";
 
 function Header() {
@@ -103,7 +103,7 @@ function Header() {
         <Grid container spacing={3} alignItems="center">
           <Grid item>
             <SuiAvatar
-              src={burceMars}
+              src={mrAdam}
               alt="profile-image"
               variant="rounded"
               size="xl"
