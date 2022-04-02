@@ -136,6 +136,11 @@ function RecoList({ jobs, filterPresent, explanations }) {
                 </Grid>
               </Grid>
             </div>}
+            {!filterPresent &&
+            <div className="center">
+                <h1>Here are some other recommendations for your reference:</h1>
+              </div>
+            }
           <Grid container spacing={3}>
             {filterPresent && jobsDisplayed.map(job => (
               <Grid item xs={12} sm={6} md={6} lg={4}>
@@ -147,6 +152,7 @@ function RecoList({ jobs, filterPresent, explanations }) {
                 />
               </Grid>
             ))}
+            
             {!filterPresent && jobsDisplayed.slice(3).map(job => (
               <Grid item xs={12} sm={6} md={6} lg={4}>
                 <RecoBox
