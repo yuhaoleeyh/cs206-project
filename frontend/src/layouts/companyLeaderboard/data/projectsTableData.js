@@ -10,7 +10,6 @@ import SuiProgress from "components/SuiProgress";
 // Images
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 import logoInvesion from "assets/images/small-logos/logo-invision.svg";
-import logoJira from "assets/images/small-logos/logo-jira.svg";
 import logoSlack from "assets/images/small-logos/logo-slack.svg";
 import logoWebDev from "assets/images/small-logos/logo-webdev.svg";
 import logoXD from "assets/images/small-logos/logo-xd.svg";
@@ -18,6 +17,8 @@ import logoApple from "assets/images/small-logos/logo-apple.svg";
 import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
 import logoFacebook from "assets/images/small-logos/logo-facebook.svg";
 import logoGoogle from "assets/images/small-logos/logo-google.svg";
+import visa from "assets/images/logos/visa.png";
+import mastercard from "assets/images/logos/mastercard.png";
 
 function Completion({ value, color }) {
   return (
@@ -51,15 +52,15 @@ export default {
       company: [logoApple, "Apple"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          IT, Internet, Software & Services
+          IT, Software & Services
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          2,890
+          36,786
         </SuiTypography>
       ),
-      score:  <Completion value={98} color="info" />
+      score: <Completion value={98} color="info" />
     },
     {
       rank: (
@@ -70,15 +71,15 @@ export default {
       company: [logoGoogle, "Google"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Telecommunications Services, Cable Supplier
+          IT, Software & Services
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          1,345
+          156,500
         </SuiTypography>
       ),
-      score:  <Completion value={96} color="success" />
+      score: <Completion value={96} color="success" />
     },
     {
       rank: (
@@ -89,16 +90,16 @@ export default {
       company: [logoFacebook, "Facebook"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Banking and Financial Services
+          IT, Software & Services
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          1,289
+          71,970
         </SuiTypography>
       ),
-      score:  <Completion value={95} color="error" />
-    },    {
+      score: <Completion value={95} color="error" />
+    }, {
       rank: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
           4
@@ -107,15 +108,15 @@ export default {
       company: [logoAtlassian, "Atlassian"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Retailing
+          Software
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          2,019
+          6,177
         </SuiTypography>
       ),
-      score:  <Completion value={92} color="info" />
+      score: <Completion value={92} color="info" />
     },
     {
       rank: (
@@ -126,15 +127,15 @@ export default {
       company: [logoSpotify, "Spotify"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Food
+          Music Streaming
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          987
+          5,587
         </SuiTypography>
       ),
-      score:  <Completion value={91} color="success" />
+      score: <Completion value={91} color="success" />
     },
     {
       rank: (
@@ -142,18 +143,18 @@ export default {
           6
         </SuiTypography>
       ),
-      company: [logoInvesion, "Invesion"],
+      company: [mastercard, "Mastercard"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          	Aerospace & Defense
+          Financial Services
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          870
+          18,600
         </SuiTypography>
       ),
-      score:  <Completion value={90} color="error" />
+      score: <Completion value={90} color="error" />
     },
     {
       rank: (
@@ -161,18 +162,18 @@ export default {
           7
         </SuiTypography>
       ),
-      company: [logoJira, "Jira"],
+      company: [visa, "Visa"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Transportation and Logistics
+          Financial Services
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          1,045
+          7,500
         </SuiTypography>
       ),
-      score:  <Completion value={83} color="info" />
+      score: <Completion value={83} color="info" />
     },
     {
       rank: (
@@ -182,16 +183,16 @@ export default {
       ),
       company: [logoSlack, "Slack"],
       industries: (
-        <SuiTypography variant="button" color="text" fontWeight="medium"> 	
-          Clothing, Shoes, Sports Equipment
+        <SuiTypography variant="button" color="text" fontWeight="medium">
+          Software and Communications
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          992
+          1,664
         </SuiTypography>
       ),
-      score:  <Completion value={81} color="success" />
+      score: <Completion value={81} color="success" />
     },
     {
       rank: (
@@ -202,7 +203,7 @@ export default {
       company: [logoWebDev, "Webdev"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Retail and Wholesale
+          Software
         </SuiTypography>
       ),
       hired: (
@@ -210,7 +211,7 @@ export default {
           875
         </SuiTypography>
       ),
-      score:  <Completion value={75} color="error" />
+      score: <Completion value={75} color="error" />
     },
     {
       rank: (
@@ -218,18 +219,18 @@ export default {
           10
         </SuiTypography>
       ),
-      company: [logoXD, "Adobe XD"],
+      company: [logoXD, "Adobe"],
       industries: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          Conglomerate
+          Software
         </SuiTypography>
       ),
       hired: (
         <SuiTypography variant="button" color="text" fontWeight="medium">
-          739
+          24,000
         </SuiTypography>
       ),
-      score:  <Completion value={68} color="info" />
+      score: <Completion value={68} color="info" />
     }
   ],
 };
