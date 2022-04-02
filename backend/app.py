@@ -17,7 +17,7 @@ def app_get_explanation_for_recommendation():
     print(data)
     disability_qn_vector = data['data']['input']
     if (1 not in disability_qn_vector):
-        disability_qn_vector = [0,1,1,0,1,0,0,0]
+        return "You are suitable for all available jobs! For more tailored recommendations, please answer our questions on the profile page."
     explanations = get_explanations(disability_qn_vector)
     return ' '.join(explanations)
 
