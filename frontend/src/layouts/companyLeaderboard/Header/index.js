@@ -40,7 +40,7 @@ import breakpoints from "assets/theme/base/breakpoints";
 
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";
-import leaderboardHeader from "assets/images/leaderboard-header6.jpg";
+import leaderboardHeader from "assets/images/leaderboard-header-final.jpg";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
@@ -76,8 +76,9 @@ function Header() {
         display="flex"
         alignItems="center"
         position="relative"
-        minHeight="40.75rem"
+        minHeight="30.75rem"
         borderRadius="xl"
+        mb={0}
         sx={{
           backgroundImage: ({ functions: { rgba, linearGradient }, palette: { gradients } }) =>
             `${linearGradient(
