@@ -86,6 +86,7 @@ def get_explanations(disability_qn_vector):
     explanations = [
         'Due to visual impairments, we recommend against jobs that require a lot of moving or driving around.',
         'For PWDs with hearing problems, we avoid suggesting jobs that require customer service and call center jobs.',
+        'If you require a wheelchair to move around, we do not suggest jobs that require moving or driving.',
         'If you have autism, we avoid recommending jobs which require excessive customer interactions.',
         'We do not recommend manufacturing and factory work if you face difficulties working with your hands.',
         'For PWDs who are less comfortable with speaking to strangers, we recommend jobs that do not need communicating with customers.',
