@@ -30,6 +30,8 @@ import googleimg from "assets/images/logos/Google__G__Logo.svg.png";
 import { useState, useEffect, React, useContext } from 'react'
 
 import axios from 'axios'
+import SuiButton from "../../../../components/SuiButton";
+
 
 import AppContext from '../../../profileCreation/AppContext'
 
@@ -99,9 +101,15 @@ function JobDescWithImage() {
                           </SuiTypography></li>) : "No disability requirements"
                   }
                 </ul>
+                <div>
+                  <br/>
+                </div>
+                <SuiButton variant="gradient" color="dark" >
+                  &nbsp;Apply now!
+                </SuiButton>
+
               </SuiBox>
             </SuiBox>
-
           </Grid>
 
         </Grid>
