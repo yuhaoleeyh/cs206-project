@@ -100,7 +100,6 @@ function Overview() {
       }
     }
 
-    console.log(inputToQuestions)
     myContext.setQuestionValue(inputToQuestions)
     const path = '/recommender'
     history.push(path)

@@ -67,7 +67,6 @@ function Recommender() {
 
   useEffect(() => {
     setInputToQuestions(myContext.questionList)
-    console.log(myContext.questionList)
     axios.post(`http://127.0.0.1:5000/jobs`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -78,8 +77,6 @@ function Recommender() {
       }
     })
       .then(response => {
-        console.log(typeof (response.data))
-        console.log(response.data[0])
         setData(response.data)
         setFilteredData(response.data)
       });
@@ -87,7 +84,6 @@ function Recommender() {
 
   useEffect(() => {
     setInputToQuestions(myContext.questionList)
-    console.log(myContext.questionList)
     axios.post(`http://127.0.0.1:5000/explanations`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -98,7 +94,6 @@ function Recommender() {
       }
     })
       .then(response => {
-        console.log(response.data)
         setExplanations(response.data)
       });
   }, []);
@@ -137,7 +132,6 @@ function Recommender() {
       }
     }
 
-    console.log(tempData);
     setFilteredData(tempData);
     setFirstFilter(false);
 

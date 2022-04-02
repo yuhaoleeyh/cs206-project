@@ -40,8 +40,6 @@ function JobDescWithImage() {
   const [companyData, setCompanyData] = useState("")
 
   useEffect(() => { 
-    console.log(myContext.company)
-    console.log(myContext.title)
 
     axios.post(`http://127.0.0.1:5000/jobs/info`, {
       headers: {
@@ -54,10 +52,8 @@ function JobDescWithImage() {
       }
     })
       .then(response => {
-       console.log(response.data)
        setCompanyData(response.data)
 
-       console.log(response.data.qualifications)
     
     });
 
