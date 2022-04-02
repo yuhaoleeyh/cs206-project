@@ -127,7 +127,7 @@
                 "Disability Support Staff: Available"
             ]
         },
-        "Factory Worker": {
+        "Factory/General Worker": {
             "jobdesc": "We are looking for a factory worker to join our team and help improve our warehouse’s production line.\nYou’ll perform various tasks, including maintaining and operating the machinery and search for potential malfunctions or risks. You’ll transfer the products and equipment, using power tools and forklift trucks. You’ll also keep the facility clean by removing debris and trash to ensure safety. Note that this position demands stamina and a good physical condition, as you’ll have to regularly lift heavy loads.\nIf you are familiar with these tasks and interested in working at a well-functioning warehouse, let’s meet.",
             "qualifications": [
                 "Previous experience as a factory worker or similar role in a warehouse",
@@ -224,7 +224,7 @@
                 "Disability Support Staff: Available"
             ]
         },
-        "Data Processing": {
+        "Data Processing Clerk": {
             "jobdesc": "We are looking for a Data Processing Operator to update and maintain information on our company databases and computer systems.\nData Processing Operator responsibilities include collecting and entering data in databases and maintaining accurate records of valuable company information. Our ideal candidate has essential data processing skills, like fast typing with an eye for detail and familiarity with spreadsheets and online forms. You will work with a data team and Data Manager. Previous experience as a Data Processing Clerk or similar position will be considered an advantage.\nUltimately, a successful Data Processing Operator will be responsible for maintaining accurate, up-to-date and useable information in our systems.",
             "qualifications": [
                 "Proven data processing work experience, as a Data Processing Operator or Office Clerk",
