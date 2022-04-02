@@ -49,7 +49,7 @@ function RecoList({ jobs }) {
                 key={job.id}
                 company={job.company}
                 title={job.job_title}
-                desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
+                desc={job.desc.length > 100 ? job.desc.concat("...") : job.desc}
               />
               <div>&nbsp;</div>
             </div>
@@ -70,7 +70,7 @@ function RecoList({ jobs }) {
               key={job.id}
               company={job.company}
               title={job.job_title}
-              desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
+              desc={job.desc.length > 100 ? job.desc.substring(0, 157).concat("...") : job.desc}
             />
           </Grid>
         ))}

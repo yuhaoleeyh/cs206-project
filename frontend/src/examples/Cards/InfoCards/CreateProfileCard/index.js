@@ -49,6 +49,9 @@ import "./index.css"
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 import { useState, useEffect, React, useContext } from 'react'
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
 
 import AppContext from '../../../../layouts/profileCreation/AppContext.js';
 
@@ -74,7 +77,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
     resetTranscript,
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
-
+  
   const [displayTranscript, setDisplayTranscript] = useState(true)
 
   useEffect(() => { 
@@ -84,6 +87,13 @@ function CreateProfileCard({ title, description, info, social, action }) {
     setLocation(myContext.location)
   }, []);
 
+  const [age, setAge] = useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+
 
 
   if (!browserSupportsSpeechRecognition) {
@@ -91,7 +101,7 @@ function CreateProfileCard({ title, description, info, social, action }) {
   }
 
   const startListening = () => {
-    SpeechRecognition.startListening({ continuous: true })
+    SpeechRecognition.startListening({ continuous: true, language: ['zh-CN', 'en-US']})
   }
 
   const stopListening = () => {
@@ -259,15 +269,31 @@ function CreateProfileCard({ title, description, info, social, action }) {
       />
       </SuiBox>
 
-      <SuiBox p={2}>
-      <div>
-        Record additional profile information here
-        
+      {/* <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </Box> */}
 
-        </div>
-          <p>
+      <SuiBox p={2}>
+      <SuiTypography variant="h5" fontWeight="medium">
+         Record additional profile information here
+        </SuiTypography>
+
+         <SuiTypography variant="h5" fontWeight="medium">
             Microphone: {listening ? 'on' : 'off'}
-          </p>
+          </SuiTypography>
 
       <SuiButton variant="gradient" color="dark" onClick={startListening} >
           &nbsp;Start recording
@@ -279,12 +305,15 @@ function CreateProfileCard({ title, description, info, social, action }) {
           &nbsp;Restart
         </SuiButton>
 
+        
+
+
 <div className = "full-width">
       <TextField
         multiline
         rows={4}
         fullWidth
-        label = {transcript}
+        value = {transcript}
       />
       </div>
       {/* <p>{displayTranscript ? transcript : <div>NULL</div>}</p> */}
@@ -349,6 +378,8 @@ function CreateProfileCard({ title, description, info, social, action }) {
           &nbsp;Edit Profile
         </SuiButton>
       </div>
+
+      
       
     </Card>
     }

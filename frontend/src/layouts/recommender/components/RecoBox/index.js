@@ -90,11 +90,11 @@ function RecoBox({key, company, title, desc}) {
 
   return (
     <div>
-    <Card onClick = {saveStateAndRedirect} className = "onHover">
+    <Card className = "onHover">
       <SuiBox p={2}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
-            <SuiBox display="flex" flexDirection="column" height="100%">
+            <SuiBox  height="100%">
             {/* <SuiBox height="100%"> */}
               <SuiBox>
                 <Grid container alignItems="center">
@@ -122,9 +122,6 @@ function RecoBox({key, company, title, desc}) {
                         }}>
                         <></>
                     </SuiBox>
-                    {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
-                          &nbsp;Read more
-                        </SuiButton> */}
                   </Grid>
                   
                   <Grid item xs={8}>
@@ -133,9 +130,6 @@ function RecoBox({key, company, title, desc}) {
                         <SuiTypography variant="body2" color="text" fontWeight="medium">
                           {company}
                         </SuiTypography>
-                        {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
-                          &nbsp;Read more
-                        </SuiButton> */}
                       </SuiBox>
                       <SuiTypography variant="h5" fontWeight="bold" gutterBottom>
                         {title}
@@ -187,9 +181,9 @@ function RecoBox({key, company, title, desc}) {
                 Read more
                 <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
               </SuiTypography> */}
-              {/* <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "hello">
+              <SuiButton variant="gradient" color="dark" onClick={saveStateAndRedirect} className = "float_right">
                 &nbsp;Read more
-              </SuiButton> */}
+              </SuiButton>
             </SuiBox>
           </Grid>
         </Grid>
