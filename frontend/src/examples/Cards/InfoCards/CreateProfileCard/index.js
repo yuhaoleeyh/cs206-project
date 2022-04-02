@@ -107,7 +107,6 @@ function CreateProfileCard({ title, description, info, social, action }) {
   const changeLanguage = (event) => {
     setLanguageChosen(language[event.target.value])
     setLanguageChosenFull(event.target.value)
-    alert(language[event.target.value])
   }
 
   const startListening = () => {
@@ -118,7 +117,6 @@ function CreateProfileCard({ title, description, info, social, action }) {
 
   const stopListening = () => {
     SpeechRecognition.stopListening();
-    console.log(transcript);
     setListeningBoolean(false);
     setText(transcript);
     
@@ -352,7 +350,6 @@ function CreateProfileCard({ title, description, info, social, action }) {
         onChange = {handleWordChange}
       />
       </div>
-      <p>{transcript}</p>
       </SuiBox>
         {/* <SuiBox>
           {renderItems}
