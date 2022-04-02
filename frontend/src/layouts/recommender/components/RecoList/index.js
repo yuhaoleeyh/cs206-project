@@ -31,9 +31,12 @@ function RecoList({ jobs, filterPresent, explanations }) {
   }
 
   useEffect(() => {
-    if (jobs.length === 0) {
+    if (jobs.length === 0 && !filterPresent) {
       setLoading(true);
-    } else {
+    } else if (jobs.length === 0) {
+      setJobsDisplayed([])
+    }
+    else {
       setJobsDisplayed(shuffle(jobs.slice(0, 23)));
       setLoading(false);
     }
@@ -49,14 +52,18 @@ function RecoList({ jobs, filterPresent, explanations }) {
     opacity: 1,
   };
 
+  console.log(jobsDisplayed.length)
+  console.log(filterPresent)
+
   return (
     <SuiBox py={3}>
-      {jobsDisplayed.length === 0 ?
+      {(jobsDisplayed.length === 0 && !filterPresent) ?
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "50vh" }}>
           <center><h1>Generating Deep Learning Recommendations..</h1>
             <Loader color={color} loading={loading} size={300} margin={0} /></center>
         </div> :
         <>
+      {(jobs.length === 0 && filterPresent) && <center><h1>No jobs available.</h1></center>}
           {!filterPresent &&
             <div>
               <div className="center">
@@ -140,7 +147,17 @@ function RecoList({ jobs, filterPresent, explanations }) {
               </Grid>
             </div>}
           <Grid container spacing={3}>
-            {jobsDisplayed.slice(3).map(job => (
+            {filterPresent && jobsDisplayed.map(job => (
+              <Grid item xs={12} sm={6} md={6} lg={4}>
+                <RecoBox
+                  key={job.id}
+                  company={job.company}
+                  title={job.job_title}
+                  desc={job.desc.length > 100 ? job.desc.substring(0, 97).concat("...") : job.desc}
+                />
+              </Grid>
+            ))}
+            {!filterPresent && jobsDisplayed.slice(3).map(job => (
               <Grid item xs={12} sm={6} md={6} lg={4}>
                 <RecoBox
                   key={job.id}
@@ -151,7 +168,7 @@ function RecoList({ jobs, filterPresent, explanations }) {
               </Grid>
             ))}
           </Grid>
-        </>};
+        </>}
     </SuiBox>
   );
 }
