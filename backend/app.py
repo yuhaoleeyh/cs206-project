@@ -17,7 +17,7 @@ def app_get_explanation_for_recommendation():
     disability_qn_vector = data['data']['input']
 
     explanations = get_explanations(disability_qn_vector)
-    return jsonify(explanations)
+    return ' '.join(explanations)
 
 @app.route('/jobs', methods = ['GET', 'POST'])
 def app_get_jobs():
