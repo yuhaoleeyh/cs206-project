@@ -52,9 +52,6 @@ function RecoList({ jobs, filterPresent, explanations }) {
     opacity: 1,
   };
 
-  console.log(jobsDisplayed.length)
-  console.log(filterPresent)
-
   return (
     <SuiBox py={3}>
       {(jobsDisplayed.length === 0 && !filterPresent) ?

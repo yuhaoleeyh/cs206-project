@@ -132,7 +132,6 @@ function Recommender() {
       }
     }
 
-    console.log(tempData)
     setFilteredData(tempData);
     setFirstFilter(false);
 
